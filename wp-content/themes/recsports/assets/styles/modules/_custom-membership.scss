@@ -1,0 +1,32 @@
+.membership {
+	padding-top: $padding-general;
+}
+
+.membership__explanation {
+	@include font-paragraph-text;
+}
+
+.membership__buttons {
+	margin-top: $padding-similar;
+}
+
+.membership__conclusion {
+	display: none;
+
+	&.paragraph--copy h2.membership__identity {
+		font-weight: 300;
+		padding-top: 0;
+	}
+
+	.table__shrinkwrap {
+		margin-top: $padding-similar;
+	}
+}
+
+.membership__name {
+	font-weight: 400;
+}
+
+.membership__identityreason {
+	@include font-fineprint;
+}

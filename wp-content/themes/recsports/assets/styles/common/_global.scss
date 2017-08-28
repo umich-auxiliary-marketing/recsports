@@ -1,0 +1,250 @@
+// Top-level elements.
+
+body {
+	@include font-base;
+}
+
+body, html {
+	background: $fill-rubberbanding;
+	height: 100%;
+	width: 100%;
+
+	@include at-least(gigantic) {
+		font-size: #{$base-font-size-giant}px;
+	}
+
+	@include at-most(wide) {
+		font-size: #{$base-font-size-mobile}px;
+	}
+
+	@include at-most(medium) {
+		//cursor: help;
+	}
+
+	@include at-most(narrow) {
+		//cursor: w-resize;
+	}
+
+	@include at-most(condensed) {
+		//cursor: no-drop;
+	}
+
+	&.js--modal-open {
+		height: 100%;
+		overflow: hidden;
+	}
+}
+
+.global {
+	position: relative;
+	-ms-overflow-x: hidden; // Thanks, IE.
+
+	.js--modal-open {
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+}
+
+::selection {
+	background-color: $fill-selection;
+}
+
+
+// The rest of the elements.
+a {
+	@include motion-textfadeout;
+
+	color: $color-link;
+
+	&:hover, &:focus {
+		@include motion-textfadein;
+		color: $color-link-hover;
+	}
+
+	&:active {
+		@include motion-textfadeinstant;
+
+		color: $color-link-active;
+	}
+
+	&.anchor {
+		border: 0;
+		display: block;
+		height: $padding-rule;
+		margin-top: -$padding-rule;
+		position: relative;
+		visibility: hidden;
+		width: 0;
+	}
+}
+
+hr {
+	border-top: $stroke-default;
+	margin: 0 auto 0 0;
+	width: span(2 of 9);
+}
+
+pre {
+	@include font-preformatted;
+}
+
+
+// Create themeable class definitions: one for most uses and a special one for
+// the call-to-action buttons (it has reversed text).
+@each $unit, $states in $units {
+	.global--#{$unit} {
+		.themed {
+			color: map-get($states, base);
+		}
+
+		.themed--parent-link .themed--child-link {
+			color: map-get($states, base);
+		}
+
+		.themed--parent-link:hover .themed--child-link, .themed--parent-link:focus .themed--child-link {
+			color: map-get($states, hover);
+		}
+
+		.themed--parent-link:active .themed--child-link {
+			color: map-get($states, active);
+		}
+
+		.themed--pseudo::before, .themed--pseudo::after, .themed--pseudo-before::before, .themed--pseudo-after::after {
+			background: map-get($states, base);
+		}
+
+		.themed--svg-stroke {
+			path, line, rect, circle, polyline, line, polygon, ellipse {
+				stroke: map-get($states, base);
+			}
+		}
+
+		.themed--chevron {
+			path {
+				@include motion-fillfadeout;
+
+				stroke: map-get($states, base);
+			}
+
+			&:hover, &:focus {
+				path {
+					@include motion-fillfadein;
+
+					stroke: map-get($states, hover);
+				}
+			}
+
+			&:active {
+				path {
+					@include motion-fillfadeinstant;
+
+					stroke: map-get($states, active);
+				}
+			}
+		}
+
+		.themed--svg-fill {
+			path, line, rect, circle, polyline, line, polygon, ellipse {
+				fill: map-get($states, base);
+			}
+		}
+
+		.themed--svg-fill-link {
+			path, line, rect, circle, polyline, line, polygon, ellipse {
+				fill: map-get($states, base);
+			}
+
+			&:hover, &:focus {
+				path, line, rect, circle, polyline, line, polygon, ellipse {
+					fill: map-get($states, hover);
+				}
+			}
+
+			&:active {
+				path, line, rect, circle, polyline, line, polygon, ellipse {
+					fill: map-get($states, active);
+				}
+			}
+		}
+
+		.themed--cta {
+			background: map-get($states, base);
+			border-color: map-get($states, base);
+
+			&:hover, &:focus {
+				background: map-get($states, hover);
+				border-color: map-get($states, hover);
+			}
+
+			&:active {
+				background: map-get($states, active);
+				border-color: map-get($states, active);
+			}
+		}
+
+		.themed--link {
+			color: map-get($states, base);
+
+			&:hover, &:focus {
+				color: map-get($states, hover);
+			}
+
+			&:active {
+				color: map-get($states, active);
+			}
+		}
+	}
+}
+
+@each $unit, $states in $units {
+	.locallink--#{$unit} {
+		color: map-get($states, base);
+
+		&:hover, &:focus {
+			color: map-get($states, hover);
+		}
+
+		&:active {
+			color: map-get($states, active);
+		}
+	}
+
+	.localcta--#{$unit} {
+		background-color: map-get($states, base);
+		border-color: map-get($states, base);
+
+		&:hover, &:focus {
+			background-color: map-get($states, hover);
+			border-color: map-get($states, hover);
+		}
+
+		&:active {
+			background-color: map-get($states, active);
+			border-color: map-get($states, active);
+		}
+	}
+}
+
+.error__dude {
+	height: to-rem(128);
+	margin: $padding-general auto;
+	width: to-rem(128);
+
+	svg {
+		display: block;
+		fill: $color-secondaryhead;
+		height: to-rem(128);
+		width: to-rem(128);
+	}
+}
+
+.error__message {
+	@include font-homesectioncopyheader;
+}
+
+.search--error {
+	padding-top: $padding-rule;
+}

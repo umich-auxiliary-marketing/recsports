@@ -1,0 +1,33 @@
+.main {
+	background: $fill-page;
+	padding-bottom: $padding-final;
+}
+
+.container--sectionsnippets {
+	background: $fill-page;
+	padding-bottom: $padding-rule;
+}
+
+.content {
+	@include span(9);
+
+	@include at-most(narrow) {
+		@include span(12);
+	}
+
+	&--home, &--full {
+		@include span(12);
+	}
+
+	&--toppad {
+		padding-top: $padding-general;
+	}
+
+	&--notitle {
+		padding-top: $padding-rule;
+	}
+
+	.collapsible & {
+		width: span(12);
+	}
+}

@@ -1,0 +1,41 @@
+.finalhook {
+	background: $fill-tertiary;
+	padding-bottom: $padding-rule;
+	padding-top: $padding-rule;
+	position: relative;
+	text-align: center;
+}
+
+.finalhook__backdrop {
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: $z-backdrop;
+}
+
+.finalhook__backdrop__svg {
+	left: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+
+	polygon {
+		//fill: $recsports;
+		opacity: .15;
+	}
+
+	.finalhook--recsports & polygon {
+		//fill: $recsports;
+		opacity: .125;
+	}
+}
+
+.finalhook__statement {
+	@include font-finaltagline;
+
+	padding-bottom: $padding-similar;
+	text-shadow: $shadow-finalhook;
+}

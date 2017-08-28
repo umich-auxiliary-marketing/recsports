@@ -1,0 +1,57 @@
+.sectionheader {
+	margin-top: $padding-rule;
+}
+
+.sectionheader__header {
+	@include font-header;
+
+	color: $color-header;
+	margin-top: $padding-rule;
+}
+
+.sectionheader__collapser {
+	color: $color-header;
+
+	span {
+		padding-right: $padding-chevron;
+	}
+
+	svg {
+		@include motion-transformin;
+
+		display: inline-block;
+		height: to-rem(26);
+		margin-left: -$padding-general;
+		stroke: $color-link;
+		transform: rotateZ(0deg) translate(0, 0);
+		transform-origin: top-right;
+		vertical-align: middle;
+		width: to-rem(26);
+	}
+
+	&:hover, &:focus {
+		color: $color-header-hover;
+
+		svg {
+			stroke: $color-link-hover;
+		}
+	}
+
+	&:active {
+		color: $color-header-active;
+
+		svg {
+			stroke: $color-link-active;
+		}
+	}
+
+	&.expanded svg {
+		@include motion-transformout;
+
+		transform: rotateZ(90deg) translate(-0%, -37.5%);
+	}
+}
+
+.collapsible {
+	display: none;
+}

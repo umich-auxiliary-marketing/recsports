@@ -1,0 +1,240 @@
+// Theme colors should have three parts: baseline, lighter, and darker. Since
+// we only refer to the classname in the WordPress admin, it's most reliable
+// to define the different shades ourselves.
+
+// Brand colors, mapped for the developer’s convenience.
+$units: (
+	recsports: (
+		base:		#407cca,
+		hover:	#4e96f5,
+		active:	#295999,
+	),
+	fitness: (
+		base:		#4296b4,
+		hover:	#50b7db,
+		active:	#296980,
+	),
+	groupx: (
+		base:		#e70,
+		hover:	#ff9124,
+		active:	#c25f00,
+	),
+	training: (
+		base:		#8d85ca,
+		hover:	#a097e6,
+		active:	#686199,
+	),
+	intramurals: (
+		base:		#815374,
+		hover:	#a86c97,
+		active:	#66415b,
+	),
+	clubs: (
+		base:		#1e988a,
+		hover:	#25bdab,
+		active:	#18786d,
+	),
+	outdoor: (
+		base:		#e84b37,
+		hover:	#ff614d,
+		active:	#c23f2e,
+	),
+	challenge: (
+		base:		#73a950,
+		hover:	#8bcc61,
+		active:	#537a39,
+	)
+);
+
+
+
+// Structure color definitions.
+$_shade-base:					#000102;
+$_shade-0:						#262729;
+$_shade-20:						#55575a;
+$_shade-30:						#707274;
+$_shade-40:						#8a8d8e;
+$_shade-50:						#a0a3a4;
+$_shade-60:						#cfcfd0;
+$_shade-70:						#ececed;
+$_shade-80:						#f5f5f6;
+$_shade-90:						#fafaf9;
+$_shade-100:					#fff;
+$_michigan-blue:			#00274c;
+$_michigan-dark:			#002140;
+$_maize:							#f5c400;
+$_blue-50:						#3972bd;
+$_blue-70:						#5b9af0;
+$_blue-30:						#295994;
+$_green-50:						#73a950;
+$_red-50:							#e84b37;
+$_red-70:							#ff614d;
+$_red-30:							#c23f2e;
+
+
+// Meaningful aliases and translucent adaptations of color definitions.
+$fill-rubberbanding:		$_michigan-dark;
+$fill-page:							$_shade-90;
+$fill-sidebar:					rgba($_shade-90, .96);
+$fill-matting:					$_shade-20;
+$fill-bullet:						$_shade-50;
+$fill-utilities:				$_michigan-dark;
+$fill-membershiplink:		$_blue-50;
+$fill-membershiplink-hover: $_blue-70;
+$fill-membershiplink-active: $_blue-30;
+$fill-defaultcta:				$_blue-50;
+$fill-defaultcta-hover:	$_blue-70;
+$fill-defaultcta-active:$_blue-30;
+$fill-headerbacking:		$_michigan-blue;
+$fill-navigation:				rgba($_michigan-blue, .9);
+$fill-droplink-hover:		$_shade-60;
+$fill-dropmenu:					$_shade-80;
+$fill-copyright:				$_michigan-dark;
+$fill-control:					$_shade-80;
+$fill-control-hover:		$_shade-90;
+$fill-control-subtlepress:$_shade-70;
+$fill-control-active:		$_shade-30;
+$fill-control-selected-active: $_shade-20;
+$fill-control-hollow:		$_shade-100;
+$fill-secondary:				$_shade-70;
+$fill-tertiary:					$_shade-80;
+$fill-sidebar-hover:		rgba($_shade-90, .2);
+$fill-sidebar-active:		rgba($_shade-base, .2);
+$fill-herooverlay:			rgba($_shade-base, .2);
+$fill-scrim:						rgba($_shade-base, .5);
+$fill-stroke:						$_shade-60;
+$fill-notice:						$_shade-70;
+$fill-notice-20:				$_blue-50;
+$fill-notice-40:				$_blue-50;
+$fill-notice-60:				$_blue-50;
+$fill-notice-80:				$_maize;
+$fill-notice-100:				$_red-50;
+$fill-notice-100-hover:	$_red-70;
+$fill-notice-100-active:$_red-30;
+$fill-selection:				rgba($_blue-70, .5);
+$fill-error:						$_red-50;
+$fill-success:					$_green-50;
+$fill-shadow:						rgba($_shade-base, .188235);
+$fill-shadowinverse:		rgba($_shade-90, 0);
+
+$stroke-default:				1px solid $_shade-60;
+$stroke-control:				1px solid $_shade-50;
+$stroke-control-hover:	1px solid $_blue-70;
+$stroke-control-active: 1px solid $_shade-20;
+$stroke-control-focus:	1px solid $_blue-50;
+$stroke-seethrough:			1px solid rgba($_shade-base, .188235);
+$stroke-navigation:			1px solid rgba($_shade-90, .2);
+$stroke-control-disabled:1px solid $_shade-70;
+$strokecolor-default:		$_shade-60;
+$strokecolor-disabled:	$_shade-70;
+
+$color-text:						$_shade-0;
+$color-header:					$_shade-20;
+$color-header-hover:		$_shade-30;
+$color-header-active:		$_shade-0;
+$color-secondary:				$_shade-40;
+$color-secondaryhead:		$_shade-50;
+$color-link:						$_blue-50;
+$color-link-hover:			$_blue-70;
+$color-link-active:			$_blue-30;
+$color-utilities:				$_shade-70;
+$color-utilities-hover:	$_shade-90;
+$color-utilities-active:$_shade-50;
+$color-droplink:				$_shade-80;
+$color-droplink-hover:	$_michigan-blue;
+$color-dropsublink:			$_shade-20;
+$color-dropsublink-hover:$_shade-40;
+$color-dropsublink-active:$_shade-0;
+$color-mobilenavlink:		$_shade-70;
+$color-mobilenavlink-hover: $_shade-90;
+$color-mobilenavlink-active: $_shade-50;
+$color-hero:						$_shade-80;
+$color-foothead:				$_shade-70;
+$color-footlink:				$_shade-60;
+$color-footlink-hover:	$_shade-70;
+$color-footlink-active:	$_shade-50;
+$color-copyright:				$_shade-40;
+$color-sectionintro:		$_shade-50;
+$color-module-subhead:	$_shade-40;
+$color-control:					$_shade-20;
+$color-control-disabled:$_shade-50;
+$color-control-active:	$_shade-90;
+$color-actionbutton:		$_shade-100;
+$color-formerror:				$_red-30;
+$color-shadowoutline:		rgba($_shade-0, .2);
+$color-shadowsoft:			rgba($_shade-0, .3);
+$color-finalhookoutline:rgba($_shade-100, .8);
+
+$opacity-cancelled:			.725;
+
+$shadow-hero:						-2px -2px 1px $color-shadowoutline, -2px 2px 1px $color-shadowoutline, 2px 2px 1px $color-shadowoutline, 2px -2px 1px $color-shadowoutline, 0 3px 7px $color-shadowsoft, 0 0px 20px $color-shadowsoft;
+$shadow-finalhook:			-2px -2px 1px $color-finalhookoutline, -2px 0 1px $color-finalhookoutline, -2px 2px 1px $color-finalhookoutline, 0 2px 1px $color-finalhookoutline, 2px 2px 1px $color-finalhookoutline, 2px 0 1px $color-finalhookoutline, 2px -2px 1px $color-finalhookoutline, 0 -2px 1px $color-finalhookoutline;
+$shadow-actionablehead:	0;
+$shadow-innerborder:		0 0 0 1px rgba($_shade-base, .188235) inset;
+$shadow-bottomborder:		0 1px 0 0 rgba($_shade-base, .188235);
+$shadow-outerborder:		0 0 0 1px rgba($_shade-base, .188235);
+
+//scss-lint:disable SpaceAfterPropertyColon
+@mixin gradient-shadow-x {
+	background-size: 4px 100%, 4px 100%;
+	background-position: 0%, 100%;
+	background-image:
+		-webkit-gradient(
+			linear,
+			left top,
+			right top,
+			color-stop(0, rgba(0, 0, 0, 0)),
+			color-stop(1, $fill-shadow)
+		),
+		-webkit-gradient(
+			linear,
+			left top,
+			right top,
+			color-stop(0, $fill-shadow),
+			color-stop(1, rgba(0, 0, 0, 0))
+		);
+	background-image:
+		linear-gradient(to right, $fill-shadow 0%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to left, $fill-shadow 0%, rgba(0, 0, 0, 0) 100%);
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-color: $fill-page;
+}
+
+@mixin inverse-shadow-left {
+	background-size: 5px 100%;
+	background-position: 0%;
+	background-image:
+		-webkit-gradient(
+			linear,
+			left top,
+			right top,
+			color-stop(0, $fill-shadowinverse),
+			color-stop(0.75, $fill-page)
+			color-stop(1, $fill-page)
+		);
+	background-image:
+		linear-gradient(to right, $fill-page 0%, $fill-page 75%, $fill-shadowinverse 100%);
+	background-repeat: no-repeat;
+}
+
+@mixin inverse-shadow-right {
+	background-size: 5px 100%;
+	background-position: 100%;
+	background-image:
+		-webkit-gradient(
+			linear,
+			right top,
+			left top,
+			color-stop(0, $fill-shadowinverse),
+			color-stop(0.75, $fill-page)
+			color-stop(1, $fill-page)
+		);
+	background-image:
+		linear-gradient(to left, $fill-page 0%, $fill-page 75%, $fill-shadowinverse 100%);
+	background-repeat: no-repeat;
+}
+
+@mixin gradient-leftshadow {
+
+}

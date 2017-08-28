@@ -1,0 +1,200 @@
+.container--notice {
+	background: $fill-notice;
+	padding: $padding-general 0;
+}
+
+.wrapper--notice {
+	@include pad(2, 2);
+
+	@include at-most(condensed) {
+		padding: 0 $padding-gutter;
+	}
+}
+
+.noticeblock {
+	padding-top: $padding-rule;
+
+	&--fullwidth {
+		padding-top: $padding-similar;
+	}
+}
+
+.notice__icon path, .notice__icon circle {
+	@include motion-textfadeout;
+	fill: currentColor;
+
+	.notice:hover &, .notice:focus & {
+		@include motion-textfadein;
+	}
+
+	.notice:active & {
+		@include motion-textfadeinstant;
+	}
+}
+
+.notice {
+	background: $fill-control;
+	border: $stroke-default;
+	border-radius: $radius-control;
+	display: flex;
+	padding: $padding-grid;
+
+	& + & {
+		margin-top: $padding-grid;
+	}
+
+	&--action-nothing, &--action-nothing:hover, &--action-nothing:focus, &--action-nothing:active {
+		color: $color-text;
+		cursor: default;
+	}
+
+	&--level_20, &--level_40, &--level_60 {
+		.notice__icon {
+			color: $color-link;
+		}
+	}
+
+	&--level_80 {
+		border-color: $fill-notice-80;
+		box-shadow: 0 0 0 1px $fill-notice-80 inset;
+
+		.notice__icon {
+			color: $fill-notice-80;
+		}
+	}
+
+	&--level_100 {
+		background: $fill-notice-100;
+		border-color: $fill-notice-100;
+
+		.notice__icon {
+			color: $fill-page;
+		}
+	}
+
+	&:link {
+		@include motion-fillfadeout;
+
+		.notice__message, .notice__description, .notice__timestamp {
+			@include motion-textfadeout;
+		}
+	}
+
+	&--action-link:hover, &--action-link:focus, &--action-expand:hover, &--action-expand:focus {
+		@include motion-fillfadein;
+
+		background: $fill-control-hover;
+
+		&.notice--level_20 .notice__icon, &.notice--level_40 .notice__icon, &.notice--level_60 .notice__icon {
+			color: $color-link-hover;
+		}
+
+		.notice__message, .notice__description, .notice__timestamp {
+			@include motion-textfadein;
+		}
+
+		&.notice--level_100 {
+			background: $fill-notice-100-hover;
+			border-color: $fill-notice-100-hover;
+		}
+	}
+
+	&.notice--action-link:active, &.notice--action-expand:active {
+		@include motion-fillfadeinstant;
+
+		background: $_shade-70;
+		color: $color-link-active;
+
+		.notice__icon, .notice__message {
+			@include motion-textfadeinstant;
+
+			color: currentColor;
+		}
+
+		&.notice--level_80 {
+			.notice__icon {
+				color: $fill-notice-80;
+			}
+		}
+
+		&.notice--level_100 {
+			background: $fill-notice-100-active;
+			border-color: $fill-notice-100-active;
+			color: $color-control-active;
+		}
+	}
+}
+
+.notice__icon {
+	@include motion-textfadeout;
+
+	display: inline-block;
+	flex: 0 0 auto;
+	height: to-rem(32);
+	width: to-rem(32);
+}
+
+.notice__message {
+	@include font-notice;
+
+	padding: to-rem(4) 0 to-rem(4) $padding-grid;
+
+	.notice--level_100 & {
+		color: $fill-page;
+	}
+}
+
+.notice__crux {
+	font-weight: 600;
+	margin-right: to-rem(13);
+}
+
+.notice__details {
+	margin-left: to-rem(-13);
+	margin-right: to-rem(13);
+}
+
+.notice__expander {
+	@include motion-transformin;
+
+	height: to-rem(13);
+	margin-left: to-rem(-6);
+	transform: rotateZ(0deg) translate(0, 0);
+	width: to-rem(6);
+
+	.notice--action-expand.expanded & {
+		@include motion-transformout;
+
+		transform: rotateZ(90deg) translate(-12.5%, -12.5%);
+	}
+
+	path {
+		stroke: currentColor;
+	}
+}
+
+.notice__description {
+	@include font-noticedescription;
+
+	color: $color-control;
+	display: none;
+
+	.notice--level_100 & {
+		color: $fill-page;
+	}
+
+	p {
+		padding-top: $padding-module;
+	}
+}
+
+.notice__timestamp {
+	@include font-timestamp;
+
+	color: $color-secondary;
+	margin-top: $padding-module;
+
+	.notice--level_100 & {
+		color: $fill-page;
+	}
+}

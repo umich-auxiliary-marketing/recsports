@@ -1,0 +1,48 @@
+.social {
+	background-color: $fill-secondary;
+	padding-bottom: $padding-rule;
+	padding-top: $padding-rule;
+
+	@include at-most(condensed) {
+		padding-bottom: $padding-general;
+		padding-top: $padding-general;
+	}
+}
+
+.social__outlet {
+	@include span(4);
+
+	text-align: center;
+
+	&:last-child {
+		@include span(last 4);
+	}
+}
+
+.social__link {
+	@include font-socialheader;
+	display: flex;
+	flex-direction: column;
+}
+
+.social__link__handle {
+	@include at-most(condensed) {
+		display: none;
+	}
+}
+
+.social__link__service {
+	display: block;
+	padding-bottom: $padding-button-y;
+
+	@include at-most(condensed) {
+		padding-bottom: 0;
+	}
+
+	svg {
+		display: inline-block;
+		fill: currentColor;
+		height: to-rem(32);
+		width: to-rem(32);
+	}
+}

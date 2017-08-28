@@ -1,0 +1,118 @@
+// Note: tables within paragraph blocks won't be styled. In order for best
+// presentation, clients should intersperse Table modules where necessary.
+
+.table {
+	margin-top: $padding-general;
+}
+
+.table__table, .paragraph table, .paragrah--copy table {
+	border-collapse: separate; // Thanks, IE.
+	font-size: 0;
+	line-height: 0;
+	max-width: 100%;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 0;
+	position: relative;
+	table-layout: fixed;
+	vertical-align: top;
+	width: 100%;
+
+	&.table__table--widthshrinkwrap {
+		width: auto;
+	}
+
+	@include at-most(compressed) {
+		display: block;
+		max-width: 100%;
+		overflow-x: scroll;
+	}
+}
+
+tbody {
+	padding: $padding-grid;
+}
+
+tr {
+	td:last-child {
+		box-shadow: 0 0 0 1px $fill-stroke;
+	}
+
+	&:first-child {
+		td:first-child {
+			border-top-left-radius: $radius-controlfill;
+		}
+
+		td:last-child {
+			border-top-right-radius: $radius-controlfill;
+		}
+	}
+
+	&:last-child {
+		td {
+			box-shadow: 0 0 0 1px $fill-stroke;
+		}
+
+		td:first-child {
+			border-bottom-left-radius: $radius-controlfill;
+		}
+
+		td:last-child {
+			border-bottom-right-radius: $radius-controlfill;
+		}
+	}
+
+	.table__table--topheader &:first-child {
+
+		td {
+			background-color: $fill-secondary;
+			font-weight: 500;
+			vertical-align: bottom;
+		}
+	}
+}
+
+th {
+	@include font-paragraph-text;
+
+	//background-color: $fill-secondary;
+}
+
+td {
+	@include font-paragraph-text;
+
+	background: $fill-page;
+	border-color: transparent;
+	border-style: solid;
+	box-shadow: -1px -1px 0 0 $fill-stroke;
+	padding: $padding-module;
+
+	@include at-most(compressed) {
+		border-left-width: 1px;
+		border-top-width: 1px;
+		min-width: 9rem;
+	}
+
+	.table__table--alignleft & {
+		text-align: left;
+	}
+
+	.table__table--aligncenter & {
+		text-align: center;
+	}
+
+	.table__table--alignright & {
+		text-align: right;
+	}
+
+	.table__table--leftheader &:first-child {
+		background-color: $fill-secondary;
+		font-weight: 500;
+		text-align: right;
+	}
+
+	.table__table--leftheaderalignleft.table__table--leftheader &:first-child {
+		text-align: left;
+	}
+}

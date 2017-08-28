@@ -1,0 +1,15 @@
+.postnav {
+	&:not(:empty) {
+		border-top: $stroke-default;
+		margin-top: $padding-general;
+		padding-top: $padding-general;
+	}
+
+	.nav-next {
+		float: left;
+	}
+
+	.nav-previous {
+		float: right;
+	}
+}

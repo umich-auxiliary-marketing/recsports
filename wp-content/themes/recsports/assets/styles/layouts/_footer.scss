@@ -1,0 +1,157 @@
+.footer {
+	background-color: $fill-headerbacking;
+	padding-bottom: $padding-general;
+	padding-top: $padding-general;
+
+	a {
+		color: $color-footlink;
+
+		&:hover, &:focus {
+			color: $color-footlink-hover;
+		}
+
+		&:active {
+			color: $color-footlink-active;
+		}
+	}
+}
+
+.footer__identification {
+	@include span(4);
+	display: flex;
+
+	@include at-most(medium) {
+		@include span(7);
+	}
+
+	@include at-most(condensed) {
+		@include span(last 12);
+
+		justify-content: center;
+	}
+}
+
+.footer__logo {
+	flex: 0 0 to-rem(106);
+	margin-right: gutter(4);
+
+	@include at-most(compressed) {
+		flex: 0 0 to-rem(75);
+	}
+
+	a {
+		background: url('../images/logo-studentlife.svg') left top / to-rem(106) to-rem(100) no-repeat;
+		display: inline-block;
+		height: to-rem(100);
+		text-indent: $magic-notext;
+		width: to-rem(106);
+
+		@include at-most(compressed) {
+			background: url('../images/logo-studentlife.svg') left top / to-rem(75) to-rem(80) no-repeat;
+			height: to-rem(75);
+			width: to-rem(80);
+		}
+	}
+}
+
+.footer__colophon {
+	flex: 1 1 100%;
+
+	@include at-most(condensed) {
+		flex: 0 1 auto;
+	}
+}
+
+.footer__organization {
+	@include font-footerheader;
+
+	-webkit-font-smoothing: antialiased;
+	height: $size-footerhead;
+}
+
+.footer__colophonline {
+	padding-top: $padding-utilities;
+}
+
+.footer__colophonlink {
+	@include font-footercontacts;
+
+	display: block;
+	padding-left: $padding-general;
+
+	@include at-most(compressed) {
+		padding-left: $padding-gutter;
+	}
+
+	&::before {
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: to-rem(16) to-rem(16);
+		content: '';
+		display: inline-block;
+		height: to-rem(16);
+		margin-bottom: $magic-footercolophonbottom;
+		margin-left: -$padding-general;
+		width: $padding-general;
+
+		@include at-most(compressed) {
+			margin-left: -$padding-gutter;
+			width: $padding-gutter;
+		}
+	}
+
+	&--address::before {
+		background-image: url('../images/footercontact-map.svg');
+	}
+
+	&--phone::before {
+		background-image: url('../images/footercontact-phone.svg');
+	}
+
+	&--email::before {
+		background-image: url('../images/footercontact-mail.svg');
+	}
+}
+
+.footer__links {
+	@include font-footerlinks;
+	@include span(last 4);
+
+	display: flex;
+	flex-wrap: wrap;
+
+	@include at-most(medium) {
+		@include span(last 5);
+	}
+
+	@include at-most(condensed) {
+		@include span(last 12);
+
+		padding-top: $padding-general;
+	}
+
+	li {
+		flex: 1 0 50%;
+
+		@include at-most(condensed) {
+			flex: 1 0 33.333%;
+			padding-right: gutter(12);
+			text-align: center;
+
+			&:nth-child(3n) {
+				padding-right: 0;
+			}
+		}
+
+		&:nth-child(2n - 1) {
+			padding-right: gutter(12);
+		}
+	}
+
+	a {
+		@include font-footerlinks;
+
+		display: block;
+		padding-top: $padding-utilities;
+	}
+}

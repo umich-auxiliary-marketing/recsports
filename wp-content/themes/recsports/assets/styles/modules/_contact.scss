@@ -1,0 +1,50 @@
+.contact {
+	margin-top: $padding-rule;
+
+	&--paragraphs {
+		margin-top: $padding-general;
+	}
+}
+
+.contact__header {
+	@include font-groupheader;
+
+	margin-top: $padding-rule;
+}
+
+.contact__list {
+	@include font-sectionnavlink;
+
+	padding-top: $padding-similar;
+}
+
+.contact__entry {
+	background-position: left to-rem(2);
+	background-repeat: no-repeat;
+	background-size: to-rem(16) to-rem(16);
+	margin-top: $padding-grid;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&--location {
+		background-image: url('../images/footercontact-map.svg');
+	}
+
+	&--phone {
+		background-image: url('../images/footercontact-phone.svg');
+	}
+
+	&--email {
+		background-image: url('../images/footercontact-mail.svg');
+	}
+
+	&--link {
+		background-image: url('../images/footercontact-link.svg');
+	}
+
+	a {
+		padding-left: $padding-gutter;
+	}
+}

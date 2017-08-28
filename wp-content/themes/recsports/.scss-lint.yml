@@ -1,0 +1,22 @@
+scss_files: 'assets/styles/**/*.css.scss'
+
+exclude: 'assets/styles/main.scss'
+
+linters:
+  TrailingWhitespace:
+    enabled: false
+
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: false
+    character: tab
+    width: 1
+
+  SingleLinePerSelector:
+    enabled: false
+
+  ColorVariable:
+    enabled: false
+
+  SelectorFormat:
+    convention: strict_BEM

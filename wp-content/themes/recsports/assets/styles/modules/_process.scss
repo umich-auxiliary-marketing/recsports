@@ -1,0 +1,44 @@
+.process__step {
+	counter-reset: li;
+	margin-top: $padding-general;
+
+	.process__value {
+		display: flex;
+
+		span {
+			padding-top: to-rem(9);
+		}
+	}
+
+	//scss-lint:disable MergeableSelector
+ 	.process__value + .process__value {
+		padding-top: $padding-grid;
+	}
+	//scss-lint:enable MergeableSelector
+
+	.process__value::before {
+		@include font-processbullet;
+
+		align-items: center;
+		align-self: flex-start;
+		border: $stroke-default;
+		border-radius: 50%;
+		color: $color-header;
+		content: counter(li);
+		counter-increment: li;
+		display: flex;
+		flex: 0 0 auto;
+		height: $size-processbullet;
+		justify-content: center;
+		margin-right: $padding-module;
+		width: $size-processbullet;
+	}
+}
+
+.process__fineprint {
+	@include font-fineprint;
+
+	margin-left: $size-processbullet;
+	margin-top: $padding-grid;
+	padding-left: $padding-module;
+}

@@ -1,0 +1,396 @@
+// Font stacks.
+$_font-header:	'RobotoCondensed', 'Roboto Condensed', 'Roboto', sans-serif;
+$_font-text:		'LibreFranklin', 'Libre Franklin', 'ITC Franklin Gothic', 'Franklin Gothic', Roboto, 'Helvetica Neue', sans-serif;
+$_font-tick:		'Tick', 'Lucida Grande', 'Lucida Sans', sans-serif;
+$_font-mono:		'SF Mono', 'Consolas', 'Monaco', monospaced;
+
+
+// Baseline font declaration. Since it is set in Libre Franklin, avoid
+// repetitive declarations in mixins below.
+@mixin font-base {
+	@include font(400, 18, 30, $_font-text);
+	color: $color-text;
+	letter-spacing: ai-letter-spacing(-3);
+}
+
+
+// Declarations for the top navs and hero.
+@mixin font-utilities {
+	@include font(500, 15, 17);
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-droplink {
+	@include font(300, 32, 38, $_font-header);
+	color: $color-droplink;
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-menuheader {
+	@include font(400, 28, 34, $_font-header);
+	letter-spacing: ai-letter-spacing(-15);
+}
+
+@mixin font-menuitem {
+	@include font(400, 18, 24, $_font-text);
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+
+@mixin font-mobilemenuheader {
+	@include font(400, 32, 36, $_font-header);
+	letter-spacing: ai-letter-spacing(-15);
+}
+
+@mixin font-mobilemenuitem {
+	@include font(400, 20, 30, $_font-text);
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-mobilemenutopitem {
+	@include font(500, 14, 30, $_font-text);
+	letter-spacing: ai-letter-spacing(-5);
+	text-transform: uppercase;
+}
+
+@mixin font-mobilenavicon {
+	@include font(700, 14, 16, $_font-header);
+	letter-spacing: ai-letter-spacing(5);
+}
+
+@mixin font-homeheroleader {
+	@include font(300, 34, 40, $_font-header);
+	color: $color-hero;
+	letter-spacing: ai-letter-spacing(-12);
+}
+
+@mixin font-homeherofinal {
+	@include font(700, 44, 50, $_font-header);
+	color: $color-hero;
+	letter-spacing: ai-letter-spacing(-15);
+}
+
+@mixin font-sectionhero {
+	@include font(400, 64, 70, $_font-header);
+	color: $color-hero;
+	letter-spacing: ai-letter-spacing(-25);
+}
+
+@mixin font-basichero {
+	@include font(300, 56, 62, $_font-header);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(-27);
+}
+
+
+// Declarations for the home page sections and buttons.
+@mixin font-groupheader {
+	@include font(700, 14, 16);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(20);
+	text-transform: uppercase;
+}
+
+@mixin font-facilityheader {
+	@include font(400, 24, 28, $_font-header);
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-facilitydetail {
+	@include font(500, 16, 20);
+	letter-spacing: ai-letter-spacing(-7);
+}
+
+@mixin font-header {
+	@include font(300, 40, 44, $_font-header);
+	letter-spacing: ai-letter-spacing(-15);
+}
+
+@mixin font-homesectionbutton {
+	@include font(600, 18, 22);
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-homesectioncopyheader {
+	@include font(300, 24, 28);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-homesectioncopy {
+	@include font(400, 18, 30);
+	color: $color-secondary;
+}
+
+
+// Declarations for section pages, including standard headers.
+@mixin font-sectionintro {
+	@include font(400, 24, 40);
+	color: $color-secondaryhead;
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-sectionbuttonintro {
+	@include font(600, 20, 24);
+	color: $color-actionbutton;
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-sectionbuttonnav {
+	@include font(600, 16, 18);
+	color: $color-actionbutton;
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-sectionbuttonfinal {
+	@include font(600, 24, 28);
+	color: $color-actionbutton;
+	letter-spacing: ai-letter-spacing(-15);
+}
+
+@mixin font-sectionnavhead {
+	@include font(700, 20, 24, $_font-header);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-sectionnavlink {
+	@include font(400, 16, 20, $_font-text);
+	letter-spacing: ai-letter-spacing(-5);
+}
+
+@mixin font-finaltagline {
+	@include font(300, 40, 48, $_font-header);
+	letter-spacing: ai-letter-spacing(-17);
+}
+
+
+// Declarations for the main text portions (typically contained in a paragraph).
+@mixin font-paragraph-header {
+	@include font(400, 28, 32, $_font-header);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(-17);
+}
+
+@mixin font-paragraph-subheader {
+	@include font(400, 24, 28, $_font-header);
+	color: $color-secondary;
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-paragraph-subsubheader {
+	@include font(600, 16, 20);
+	color: $color-secondary;
+	letter-spacing: ai-letter-spacing(5);
+	text-transform: uppercase;
+}
+
+@mixin font-paragraph-text {
+	@include font(400, 18, 30);
+	color: $color-text;
+	letter-spacing: ai-letter-spacing(-3);
+}
+
+@mixin font-paragraph-expandertext {
+	@include font(400, 16, 24);
+	color: $color-text;
+	letter-spacing: ai-letter-spacing(-3);
+}
+
+
+// Declarations for modules, including controls, fieldset headers, and states.
+@mixin font-controlbutton {
+	@include font(600, 16, 20, $_font-text);
+}
+
+@mixin font-controlsecondary {
+	@include font(600, 14, 16, $_font-text);
+}
+
+@mixin font-controldescription {
+	@include font(400, 14, 16, $_font-text);
+	color: $color-header;
+}
+
+@mixin font-welltext {
+	@include font(400, 16, 18, $_font-text);
+	font-size: 16px;
+}
+
+@mixin font-controltext {
+	@include font(500, 16, 18, $_font-text);
+}
+
+@mixin font-moduleheader {
+	@include font(400, 24, 28);
+}
+
+@mixin font-fieldsetheader {
+	@include font(700, 14, 18);
+	color: $color-module-subhead;
+	letter-spacing: ai-letter-spacing(5);
+	text-transform: uppercase;
+}
+
+@mixin font-calendarday {
+	@include font(600, 16, 16, $_font-text);
+}
+
+@mixin font-calendartime {
+	@include font(500, 14, 20);
+	color: $color-header;
+}
+
+@mixin font-calendarbuilding {
+	@include font(300, 14, 20);
+	color: $color-secondary;
+}
+
+@mixin font-calendardata {
+	@include font(400, 16, 22);
+}
+
+@mixin font-calendardetailheader {
+	@include font(400, 24, 28);
+}
+
+@mixin font-calendartag {
+	@include font(600, 14, 16, $_font-text);
+	color: $color-secondary;
+	letter-spacing: ai-letter-spacing(15);
+}
+
+@mixin font-calendardetailinfoheader {
+	@include font(700, 12, 12);
+	color: $color-module-subhead;
+	letter-spacing: ai-letter-spacing(10);
+	text-transform: uppercase;
+}
+
+@mixin font-calendardetail {
+	@include font(600, 14, 18);
+}
+
+@mixin font-moduledescription {
+	@include font(400, 16, 24);
+	color: $color-secondary;
+}
+
+@mixin font-listheader {
+	@include font(400, 18, 22);
+}
+
+@mixin font-listlabel {
+	@include font(400, 16, 24);
+}
+
+@mixin font-processbullet {
+	@include font(400, 24, 24);
+	letter-spacing: ai-letter-spacing(-25);
+}
+
+@mixin font-ratelist {
+	@include font(400, 18, 22);
+}
+
+@mixin font-rateprice {
+	@include font(300, 24, 24);
+}
+
+@mixin font-fineprint {
+	@include font(400, 14, 18);
+	color: $color-secondary;
+}
+
+@mixin font-pricesuffix {
+	@include font(400, 14, 16);
+}
+
+@mixin font-tick {
+	@include font(400, 18, 16, $_font-tick);
+}
+
+
+// Notices.
+@mixin font-notice {
+	@include font(400, 18, 24, $_font-text);
+}
+
+@mixin font-noticedescription {
+	@include font(400, 16, 24, $_font-text);
+}
+
+
+
+// Declarations for the social media bar.
+@mixin font-socialheader {
+	@include font(600, 18, 22);
+	color: $color-header;
+}
+
+@mixin font-socialcopy {
+	@include font(400, 22, 30);
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-timestamp {
+	@include font(700, 14, 16);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(20);
+}
+
+@mixin font-socialengagement {
+	@include font(600, 14, 16);
+	color: $color-header;
+	letter-spacing: ai-letter-spacing(20);
+}
+
+
+// Declarations for the footer.
+@mixin font-footerheader {
+	@include font(700, 24, 28, $_font-header);
+	color: $color-foothead;
+	letter-spacing: ai-letter-spacing(-10);
+}
+
+@mixin font-footercontacts {
+	@include font(600, 15, 20);
+	color: $color-footlink;
+	letter-spacing: ai-letter-spacing(5);
+}
+
+@mixin font-footerlinks {
+	@include font(500, 15, 20);
+	letter-spacing: ai-letter-spacing(5);
+}
+
+@mixin font-copyright {
+	@include font(400, 12, 14);
+	color: $color-copyright;
+	letter-spacing: ai-letter-spacing(10);
+}
+
+@mixin font-preformatted {
+	@include font(400, 11, 13, $_font-mono);
+	tab-size: 2;
+}
+
+
+// Font declarations for forms.
+@mixin font-formlabel {
+	@include font(500, 16, 22, $_font-text);
+}
+
+@mixin font-formdescription {
+	@include font(400, 14, 20);
+	color: $color-secondary;
+}
+
+@mixin font-formerror {
+	@include font(600, 14, 16);
+	color: $color-formerror;
+	letter-spacing: ai-letter-spacing(0);
+}
+
+
+// Font declarations for general body text, including bullets and numerals.

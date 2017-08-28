@@ -1,0 +1,382 @@
+.form {
+	padding-top: $padding-general;
+}
+
+.form__shrinkwrap {
+	border: $stroke-default;
+	border-radius: $radius-control;
+
+	@include at-least(extrawide) {
+		@include span(9 of 12);
+	}
+
+	@include at-most(extrawide) {
+		@include span(10 of 12);
+	}
+
+	@include at-most(wide) {
+		@include span(12 of 12);
+	}
+
+	&.collapsed {
+		display: none;
+	}
+}
+
+// Formidable container styles. Input styles must remain in controls.scss.
+// scss-lint:disable SelectorFormat
+.frm_forms {
+	label {
+		display: block;
+		padding-right: $padding-grid;
+	}
+}
+
+.frm_form_fields {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 $padding-grid;
+}
+
+.frm_form_field {
+	align-content: flex-start;
+	display: flex;
+	flex: 1 1 100%;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-top: $padding-gutter;
+
+	&.frm_half, &.frm_third, &.frm_two_thirds, &.frm_fourth, &.frm_three_fourths {
+		flex-grow: 1;
+		flex-shrink: 1;
+
+		& + & {
+			padding-left: $padding-grid;
+		}
+	}
+
+	&.frm_half {
+		flex-basis: calc(50% - #{$padding-grid});
+	}
+
+	&.frm_third {
+		flex-basis: calc(33.3% - #{$padding-grid});
+	}
+
+	&.frm_two_thirds {
+		flex-basis: calc(66.7% - #{$padding-grid});
+	}
+
+	&.frm_fourth {
+		flex-basis: calc(25% - #{$padding-grid});
+	}
+
+	&.frm_three_fourths {
+		flex-basis: calc(75% - #{$padding-grid});
+	}
+}
+
+.frm_none_container {
+	.frm_primary_label {
+		display: none;
+	}
+}
+
+legend.frm_hidden {
+	display: none;
+}
+
+.frm_hidden_container {
+	.frm_primary_label {
+		visibility: hidden;
+	}
+}
+
+.frm_blank_field {
+	input[type=text],
+	input[type=url],
+	input[type=tel],
+	input[type=search],
+	input[type=number],
+	input[type=color],
+	input[type=email],
+	textarea,
+	select {
+		border-color: $fill-error;
+		box-shadow: 0 0 0 1px $fill-error inset;
+	}
+}
+
+.frm_checkbox, .frm_radio {
+	& + & {
+		margin-top: $padding-module;
+	}
+}
+
+
+.frm_required_field .frm_required {
+	@include ada-hiddentext;
+	@include motion-textfadein;
+
+	background: $_red-30;
+	border-radius: 50%;
+	box-shadow: 0 0 0 2px rgba($fill-page, 0), 0 0 0 3px rgba($_red-70, 0);
+	display: inline-block;
+	height: 7px;
+	margin-top: to-rem(3);
+	vertical-align: top;
+	width: 7px;
+}
+
+.frm_blank_field .frm_required {
+	background: $_red-70;
+	box-shadow: 0 0 0 2px $fill-page, 0 0 0 3px $_red-70;
+}
+
+.frm_primary_label {
+	@include font-formlabel;
+
+	flex: 1 1 100%;
+	padding-bottom: $padding-button-y;
+}
+
+.frm_description {
+	@include font-formdescription;
+
+	flex: 1 1 100%;
+	padding-top: $padding-button-y;
+}
+
+.frm_error {
+	@include font-formerror;
+
+	flex: 1 1 100%;
+	padding-top: $padding-button-y;
+}
+
+.frm_section_heading {
+
+	h3 {
+		@include font-paragraph-subheader;
+
+		flex: 1 1 100%;
+	}
+
+	padding-top: $padding-general;
+}
+
+.frm_pos_none, input[type=text].frm_pos_none {
+	display: none;
+}
+
+input[type=text].frm_other_input {
+	margin-top: $padding-button-y;
+}
+
+.frm_submit {
+	border-top: $stroke-default;
+	flex: 1 1 100%;
+	margin-top: $padding-grid;
+	overflow: hidden;
+	padding: $padding-grid 0;
+
+	input, button {
+		line-height: 1.375rem;
+	}
+
+	input[type=submit], .frm_button_submit {
+		float: right;
+	}
+}
+
+.frm_ajax_loading {
+	display: none;
+}
+
+.frm_message p, .frm_error_style p {
+	@include font-paragraph-text;
+
+	font-weight: 500;
+	margin-left: to-rem(36);
+	padding: $padding-grid;
+	text-indent: to-rem(-36);
+
+	&::before {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		content: '';
+		display: inline-block;
+		height: to-rem(24);
+		margin-right: to-rem(12);
+		vertical-align: middle;
+		width: to-rem(24);
+	}
+}
+
+.frm_message p::before {
+	background-image: url('../images/form-success.svg');
+}
+
+.frm_error_style p::before {
+	background-image: url('../images/form-problem.svg');
+}
+
+// Thanks, NYT website
+.g-recaptcha {
+	max-width: 100%;
+	overflow: hidden;
+
+	& > div {
+		margin-bottom: to-rem(-16);
+		transform: scale(.8);
+		transform-origin: left top;
+
+		// scss-lint:disable ImportantRule
+		width: auto !important;
+		// scss-lint:enable ImportantRule
+	}
+
+	iframe {
+		max-width: 125%;
+	}
+}
+
+.frm_preview_page {
+	background: $fill-page;
+
+	legend, .frm_form_title, .frm_form_title + .frm_description {
+		display: none;
+	}
+}
+
+
+// UI datepicker
+.ui-datepicker-prev, .ui-datepicker-next {
+	height: auto;
+	margin: 0;
+	visibility: visible;
+}
+
+
+.ui-datepicker {
+	background: $fill-control;
+	border: $stroke-default;
+	border-radius: $radius-control;
+	max-width: to-rem(320);
+	padding: $padding-module;
+	user-select: none;
+	width: 90%;
+
+	table {
+		margin-bottom: 0;
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	tbody, thead {
+		padding: 0;
+	}
+
+	th {
+		@include font-calendarday;
+
+		padding: .25rem 0;
+		text-align: center;
+		width: 14.2857%;
+	}
+
+	td {
+		min-width: 0;
+		padding: 0;
+		text-align: right;
+		width: 14.2857%;
+
+		a {
+			border: 0;
+			display: block;
+			padding: .25rem;
+
+			&:active, &.ui-state-highlight:active, &.ui-state-active:active {
+				background: $fill-control-selected-active;
+				color: $color-control-active;
+			}
+
+			&.ui-state-highlight {
+				background: $fill-control-subtlepress;
+			}
+
+			&.ui-state-active {
+				background: $fill-control-active;
+				color: $color-control-active;
+			}
+		}
+
+		&.ui-state-disabled {
+			background: $fill-control;
+		}
+	}
+
+	&-header {
+		align-content: stretch;
+		display: flex;
+		padding-bottom: 1rem;
+	}
+
+	&-next, &-prev {
+	  cursor: pointer;
+	  background-size: to-rem(6) to-rem(17);
+	  background-position: center center;
+	  background-repeat: no-repeat;
+		border: 0;
+		display: block;
+		flex: 0 1 2rem;
+		text-indent: $magic-notext;
+
+		&.ui-state-disabled {
+			cursor: default;
+			opacity: 0.2;
+		}
+	}
+
+	&-next {
+		background-image: url("../images/calendar-increment-next.svg");
+		order: 10;
+	}
+
+	&-prev {
+		background-image: url("../images/calendar-increment-prev.svg");
+		order: -10;
+	}
+
+	&-title {
+		display: flex;
+		flex: 1 1 50%;
+	}
+
+	&-month, &-year {
+		flex: 1 1 50%;
+		margin: .125rem;
+	}
+}
+
+.frm_time_sep {
+	margin: 0 $padding-button-y;
+
+	@include at-most(compressed) {
+		margin: 0;
+	}
+}
+
+select.frm_time_select {
+	flex: 0 1 auto;
+	width: auto;
+
+	&:nth-of-type(2) {
+		margin-right: $padding-button-x;
+
+		@include at-most(compressed) {
+			margin-right: $padding-button-y;
+		}
+	}
+}

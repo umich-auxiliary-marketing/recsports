@@ -1,0 +1,35 @@
+.copyright {
+	@include font-copyright;
+
+	background-color: $fill-copyright;
+	padding-bottom: $padding-bookend;
+	padding-top: $padding-bookend;
+
+	a {
+		color: $color-copyright;
+	}
+}
+
+.copyright__portal-link {
+	@include span(2);
+
+	@include at-most(condensed) {
+		display: none;
+	}
+}
+
+.copyright__regents-statement {
+	@include span(last 10);
+	text-align: right;
+
+	@include at-most(condensed) {
+		@include span(last 12);
+		text-align: center;
+	}
+}
+
+.copyright__extended {
+	@include at-most(compressed) {
+		display: none;
+	}
+}

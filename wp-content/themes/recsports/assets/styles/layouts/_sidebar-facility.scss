@@ -1,0 +1,189 @@
+.sidebar-facility {
+	@include span(last 4);
+	@include motion-pushupfromblocktopscrollout;
+
+	border: 0;
+	padding-left: gutter(12);
+	margin-top: $padding-rule;
+	position: relative;
+
+	@include at-most(medium) {
+		@include span(12);
+
+		align-items: flex-start;
+		border-top: $stroke-default;
+		display: flex;
+		justify-content: flex-start;
+		margin-top: $padding-gutter;
+		padding-left: 0;
+		padding-top: $padding-gutter;
+	}
+
+	@include at-most(condensed) {
+		display: block;
+	}
+
+	.content--facility & {
+		margin-top: 0;
+
+		@include at-most(medium) {
+			margin-top: $padding-gutter;
+		}
+	}
+
+	&::before {
+		background: $fill-stroke;
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 1px;
+
+		@include at-most(medium) {
+			display: none;
+		}
+	}
+
+	// Order matters for headroom.js. Be clever and careful!
+	&.sticky.headroom--unpinned {
+		@include motion-pushupfromblocktopscrollout;
+	}
+
+	&.sticky.headroom--pinned, .is_stuck.headroom--bottom {
+		@include motion-pushdownfromblocktopscrollin;
+
+		&.sticky--bottom {
+			@include motion-pushupfromblocktopscrollout;
+		}
+	}
+
+	&.sticky.headroom--top {
+		transform: none;
+	}
+}
+
+.sidebar-facility__mapblock {
+
+	@include at-most(medium) {
+		flex: 0 0 50%;
+	}
+
+	@include at-most(condensed) {
+		flex: 0 0 100%;
+	}
+}
+
+.sidebar-facility__photo {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: $radius-control;
+	box-shadow: $shadow-innerborder;
+	display: block;
+	height: 0;
+	margin-bottom: $padding-similar;
+	padding-top: 50%;
+	width: 100%;
+}
+
+.sidebar-facility__maplink {
+	display: block;
+	height: 0;
+	padding-top: 70%;
+	position: relative;
+	width: 100%;
+
+	&::after {
+		@include motion-textfadeout;
+
+		background: transparent;
+		border-radius: $radius-control;
+		bottom: 0;
+		box-shadow: $shadow-innerborder;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&:link:hover::after {
+		@include motion-textfadein;
+
+		background: $fill-sidebar-hover;
+	}
+
+	&:link:active::after {
+		@include motion-textfadeinstant;
+
+		background: $fill-sidebar-active;
+	}
+
+}
+
+.sidebar-facility__pin {
+	height: 32px;
+	left: 50%;
+	margin-left: -16px;
+	margin-top: -28px;
+	position: absolute;
+	top: 50%;
+	width: 32px;
+}
+
+.sidebar-facility__map {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: $radius-control;
+	bottom: 0;
+	display: block;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.list__item .sidebar-facility__map, .list__item .sidebar-facility__photo {
+	display: none;
+}
+
+.sidebar-facility__undermap {
+	@include at-most(medium) {
+		flex: 1 1 50%;
+		padding-left: $padding-gutter;
+	}
+
+	@include at-most(condensed) {
+		padding-left: 0;
+		padding-top: $padding-grid;
+	}
+}
+
+.sidebar-facility__address {
+	@include font-controltext;
+
+	display: block;
+	padding-top: $padding-grid;
+
+	@include at-most(medium) {
+		padding-top: 0;
+	}
+}
+
+.sidebar-facility__directions {
+	padding-top: $padding-grid;
+}
+
+.sidebar-facility__access {
+	border-top: $stroke-default;
+	margin-top: $padding-grid;
+	padding-top: $padding-grid;
+}
+
+.sidebar-facility__accessexplanation {
+	@include font-paragraph-expandertext;
+
+	margin-bottom: $padding-grid;
+}

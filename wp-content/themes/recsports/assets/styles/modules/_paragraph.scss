@@ -1,0 +1,159 @@
+.paragraph {
+	padding-top: $padding-general;
+
+	:first-child {
+		padding-top: 0;
+	}
+}
+
+// scss-lint:disable SelectorFormat
+// scss-lint:disable NestingDepth
+// scss-lint:disable SelectorDepth
+.paragraph, .paragraph--copy, .paragraph--copyfree, .mce-content-body {
+	@include font-paragraph-text;
+
+	> :first-child {
+		padding-top: 0;
+	}
+
+	a {
+		border-bottom: 1px solid transparent;
+		box-shadow: 0 1px 0 0 $fill-stroke;
+
+		&:hover {
+			box-shadow: 0 1px 0 0 $stroke-control-focus;
+		}
+
+		&:active {
+			box-shadow: 0 1px 0 0 $fill-control-active;
+		}
+	}
+
+	blockquote {
+		font-weight: 300;
+		margin-top: $padding-similar;
+		padding-left: $padding-gutter;
+		position: relative;
+
+		&::before {
+			background: $fill-stroke;
+			bottom: 0;
+			content: '';
+			display: block;
+			left: $padding-button-y;
+			position: absolute;
+			top: 0;
+			width: 1px;
+		}
+	}
+
+	h1, h2, h3 {
+		@include font-paragraph-header;
+		padding-top: $padding-general;
+	}
+
+	h4 {
+		@include font-paragraph-subheader;
+		padding-top: $padding-general;
+	}
+
+	h5, h6 {
+		@include font-paragraph-subsubheader;
+		padding-top: $padding-general;
+	}
+
+	ul {
+		@include bullet-a;
+
+		padding-left: $padding-gutter;
+		padding-top: $padding-similar;
+
+		ul {
+			@include bullet-b;
+
+			padding-top: 0;
+
+			ol {
+				@include ordinal-c;
+			}
+
+			ul {
+				@include bullet-c;
+			}
+		}
+
+		ol {
+			@include ordinal-b;
+			padding-top: 0;
+
+			ol {
+				@include ordinal-c;
+			}
+
+			ul {
+				@include bullet-c;
+			}
+		}
+	}
+
+	ol {
+		@include ordinal-a;
+
+		padding-left: $padding-gutter;
+		padding-top: $padding-similar;
+
+		ul {
+			@include bullet-b;
+
+			padding-top: 0;
+
+			ol {
+				@include ordinal-c;
+			}
+		}
+
+		ol {
+			@include ordinal-b;
+
+			padding-top: 0;
+
+			ol {
+				@include ordinal-c;
+			}
+
+			ul {
+				@include bullet-c;
+			}
+		}
+	}
+
+	p {
+		padding-top: $padding-similar;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+}
+
+.paragraph--fineprint {
+	@include font-fineprint;
+
+	padding-top: $padding-similar;
+}
+
+.paragraph--smallpadtop {
+	padding-top: $padding-similar;
+}
+
+.paragraph--introcolor {
+	color: $color-secondary;
+}
+
+.paragraph--heaviertext {
+	font-weight: 500;
+}
+
+.paragraph--smallertext {
+	font-size: 75%;
+}

@@ -1,0 +1,13 @@
+.container--pagetitle {
+	@include span(12);
+}
+
+.pagetitle {
+	@include font-basichero;
+
+	margin-top: $padding-rule;
+}
+
+.pagetitle + .content {
+	border-top: 0;
+}

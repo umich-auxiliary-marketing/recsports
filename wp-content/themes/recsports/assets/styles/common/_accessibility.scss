@@ -1,0 +1,65 @@
+// Global accessibility classes
+.ada {
+
+	&--hidden {
+		display: none;
+	}
+
+	&--visible {
+		display: block;
+		visibility: visible;
+	}
+
+	&--hidden-text {
+		text-indent: $magic-notext;
+	}
+
+	&--visually-hidden-text {
+		left: $magic-notext;
+		position: absolute;
+		text-indent: $magic-notext;
+		top: $magic-notext;
+	}
+}
+
+@mixin ada-hidden {
+	display: none;
+}
+
+@mixin ada-visible {
+	display: block;
+}
+
+@mixin ada-hiddentext {
+	text-indent: $magic-notext;
+}
+
+.screen-reader-text {
+	@include ada-hidden;
+}
+
+/*
+// Skip to content link (works in conjunction with base.php)
+.skip-main {
+	background-color: $fill-skip-content;
+	height: 1px;
+	left: -9999px;
+	overflow: hidden;
+	position: absolute;
+	top: $padding-document;
+	width: 1px;
+	z-index: -999;
+}
+
+.skip-main:focus, .skip-main:active {
+	height: auto;
+	left: $padding-document;
+	overflow: auto;
+	padding: $padding-wrapper;
+	right: $padding-document;
+	text-align: center;
+	top: $padding-document;
+	width: auto;
+	z-index: 999;
+}
+*/

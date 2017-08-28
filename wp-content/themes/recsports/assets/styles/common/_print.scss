@@ -1,0 +1,14 @@
+// scss-lint:disable ImportantRule
+@media print {
+	.sticky {
+		left: auto !important;
+		position: static !important;
+		top: auto !important;
+		width: auto !important;
+	}
+
+	.header.headroom--unpinned {
+		transform: translateZ(0) !important;
+		visibility: visible !important;
+	}
+}

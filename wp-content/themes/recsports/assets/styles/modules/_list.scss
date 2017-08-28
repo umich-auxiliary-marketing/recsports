@@ -1,0 +1,520 @@
+.list {
+	margin-top: $padding-general;
+}
+
+.list__counter {
+	@include font-fineprint;
+
+	margin-bottom: $padding-similar;
+}
+
+.list__group {
+	align-items: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.list__group--grid {
+	.list__item {
+		align-items: flex-start;
+		margin-right: gutter(9);
+		position: relative;
+
+		@include at-least(gigantic) {
+			width: span(2.25 of 9);
+
+			&:nth-child(4n + 1) {
+				.list__expander {
+					margin-left: 0;
+				}
+
+				.list__expanderarrow {
+					//left: 11.375%;
+				}
+			}
+
+			&:nth-child(4n + 2) {
+				.list__expander {
+					margin-left: -100% - 13.75%;
+				}
+
+				.list__expanderarrow {
+					left: 25% - 2.34375% + 3.125%;
+				}
+			}
+
+			&:nth-child(4n + 3) {
+				.list__expander {
+					margin-left: -200% - 27.5%;
+				}
+
+				.list__expanderarrow {
+					left: 50% - 2.34375% - 2.34375% + 3.125% + 3.125%;
+				}
+			}
+
+			&:nth-child(4n) {
+				margin-right: 0;
+
+				.list__expander {
+					margin-left: -300% - 41.25%;
+				}
+
+				.list__expanderarrow {
+					left: 75% - 2.34375% - 2.34375% - 2.34375% + 3.125% + 3.125% + 3.125%;
+				}
+			}
+
+			&:nth-child(n+5) {
+				&::before {
+
+					display: block;
+					content: '';
+					padding-top: 15%;
+				}
+			}
+		}
+
+		@include at-most(extrawide) {
+			width: span(3 of 9);
+
+			&:nth-child(3n + 1) {
+				.list__expander {
+					margin-left: 0;
+				}
+
+				.list__expanderarrow {
+					left: 0%;
+				}
+			}
+
+			&:nth-child(3n + 2) {
+				.list__expander {
+					margin-left: -100% - 10%;
+				}
+
+				.list__expanderarrow {
+					left: 33.3% - 2.083% + 3.125%;
+				}
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+
+				.list__expander {
+					margin-left: -200% - 20%;
+				}
+
+				.list__expanderarrow {
+					left: 66.7% - 2.083% - 2.083% + 3.125% + 3.125%;
+				}
+			}
+
+			&:nth-child(n+4) {
+				&::before {
+
+					display: block;
+					content: '';
+					padding-top: 10%;
+				}
+			}
+		}
+
+		@include at-most(condensed) {
+			width: span(4.5 of 9);
+
+			&:nth-child(3n) {
+				margin-right: gutter(9);
+			}
+
+			&:nth-child(2n + 1) {
+				.list__expander {
+					margin-left: 0;
+				}
+
+				.list__expanderarrow {
+					left: 0;
+				}
+			}
+
+			&:nth-child(2n) {
+				margin-right: 0;
+
+				.list__expander {
+					margin-left: -100% - 6.5%;
+				}
+
+				.list__expanderarrow {
+					left: 50% + 1.5625%;
+				}
+			}
+
+			&:nth-child(n+3) {
+				&::before {
+
+					display: block;
+					content: '';
+					padding-top: 5%;
+				}
+			}
+		}
+
+		@include at-most(compressed) {
+			margin-right: 0;
+			margin-top: $padding-module;
+			width: 100%;
+
+			&:nth-child(n), &:nth-child(2n), &:nth-child(3n), &:nth-child(4n) {
+				margin-right: 0;
+
+				.list__expander {
+					margin-left: 0;
+				}
+
+				.list__expanderarrow {
+					left: 0;
+				}
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+
+		&.expanded {
+			.list__expander {
+				@include motion-expandedfadeinstant;
+
+				opacity: 1;
+				z-index: $z-expanded-focus;
+			}
+
+			.list__link::after, .list__link:hover::after, .list__link:focus::after {
+				background: $fill-sidebar-active;
+			}
+		}
+	}
+
+	.list__link {
+		@include font-listlabel;
+
+		align-items: center;
+		background-color: $fill-control;
+		border: $stroke-default;
+		border-radius: $radius-control;
+		display: flex;
+		height: $size-listheight;
+		padding: $padding-grid;
+
+		@include at-most(medium) {
+			height: to-rem(84);
+			padding: $padding-module;
+		}
+
+		&.list__link--nothing {
+			cursor: default;
+			pointer-events: none;
+		}
+
+		&:hover, &:focus {
+			background-color: $fill-control-hover;
+		}
+
+		&:active, .expanded &:active {
+			background-color: $fill-control-selected-active;
+			border: $stroke-control-active;
+			color: $color-control-active;
+		}
+
+		&.themed--parent-link:active .list__icon {
+			color: $color-control-active;
+		}
+
+		&--photo {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border: 0;
+			position: relative;
+
+			&::after {
+				@include motion-textfadeout;
+
+				background: transparent;
+				border-radius: $radius-control;
+				bottom: 0;
+				box-shadow: $shadow-innerborder;
+				content: '';
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			&:link:hover::after {
+				@include motion-textfadein;
+
+				background: $fill-sidebar-hover;
+			}
+
+			&:link:active::after {
+				@include motion-textfadeinstant;
+
+				background: $fill-sidebar-active;
+			}
+		}
+
+		&--photo:active {
+			border: 0;
+		}
+	}
+
+	.list__titlesecondary {
+		@include font-controlsecondary;
+
+		margin-top: $padding-button-y;
+	}
+
+	.list__expander {
+		@include motion-expandedfadeout;
+
+		display: none;
+		opacity: 0;
+		position: relative;
+		width: 400% + 41.25%; // math: 100 times the number of grid tiles in a row
+		z-index: $z-expanded-blur;
+
+		@include at-most(extrawide) {
+			width: 300% + 20%;
+		}
+
+		@include at-most(condensed) {
+			width: 200% + 6.5%;
+		}
+
+		@include at-most(compressed) {
+			width: 100%;
+		}
+
+		&::after {
+			clear: both;
+			content: '';
+			display: block;
+		}
+	}
+
+	.list__expanderarrow {
+		background: url('../images/expander-arrow.svg') center center / 100% 100% no-repeat;
+		display: block;
+		height: 2rem;
+		margin: 1px 0 -1px;
+		padding-top: 1rem;
+		position: relative;
+		width: 25% - 2.34375%;
+
+		@include at-most(extrawide) {
+			width: 33.3% - 2.083%;
+		}
+
+		@include at-most(condensed) {
+			width: 50% - 1.5625%;
+		}
+
+		@include at-most(compressed) {
+			width: 100%;
+		}
+	}
+
+	.list__expanderclose {
+		@include motion-textfadeout;
+
+		background-color: $fill-page;
+		color: $color-header;
+		display: block;
+		height: 3rem;
+		padding: .5rem;
+		position: absolute;
+		right: .5rem;
+		top: 2.5rem;
+		width: 3rem;
+		z-index: $z-expandedclose;
+
+		path {
+			fill: currentColor;
+		}
+
+		&:hover, &:focus {
+			@include motion-textfadein;
+
+			color: $color-header-hover;
+		}
+
+		&:active {
+			@include motion-textfadeinstant;
+			color: $color-header-active;
+		}
+	}
+
+	.list__expandercontent {
+		background-color: $fill-page;
+		border: $stroke-default;
+		border-radius: $radius-control;
+		padding: $padding-grid;
+		padding-right: 4rem;
+
+		&--facility, &--gallery {
+			padding: $padding-gutter;
+		}
+	}
+
+	&.list__group--sizelarge .list__item .list__link {
+		height: to-rem(126);
+
+		@include at-most(medium) {
+			height: $size-listheight;
+		}
+	}
+
+	&.list__group--sizesquare .list__item .list__link {
+		height: 0;
+		padding-bottom: 75%;
+
+		@include at-most(medium) {
+			height: 0;
+		}
+	}
+}
+
+.list__group--list {
+	.list__expanderarrow,
+	.list__expanderclose {
+		display: none;
+	}
+
+	.list__item {
+		display: flex;
+		flex: 0 0 100%;
+		flex-wrap: wrap;
+	}
+
+	.list__item + .list__item {
+		padding-top: $padding-general;
+	}
+
+	.list__item + .list__item--withicon {
+		padding-top: $padding-similar;
+	}
+
+	.list__link {
+		align-items: center;
+		display: flex;
+		flex: 0 0 100%;
+
+		&.list__link--nothing, &.list__link--description {
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+
+	.list__titlemain {
+		@include font-paragraph-header;
+	}
+
+	.list__titlesecondary {
+		@include font-groupheader;
+
+		margin-top: $padding-similar;
+	}
+
+	.list__expander {
+		flex: 0 0 100%;
+		margin-top: $padding-similar;
+	}
+
+	.list__item--withicon {
+
+		.list__icon {
+			align-self: flex-start;
+		}
+
+		.list__expander {
+			margin-top: 0;
+			padding-left: 4rem + .75rem;
+
+			@include at-least(gigantic) {
+				padding-left: 3.5556rem + .75rem;
+			}
+
+			@include at-most(medium) {
+				padding-left: 3rem + .75rem;
+			}
+		}
+
+		.list__titlesecondary {
+			padding-bottom: $padding-similar;
+		}
+	}
+}
+
+.expanded .list__link, .expanded .list__link:hover, .expanded .list__link:focus {
+	background-color: $fill-control-active;
+	border: $stroke-control-active;
+	color: $color-control-active;
+
+	.list__icon {
+		color: $color-control-active;
+	}
+}
+
+.expanded .list__link:active {
+	background-color: $fill-control-selected-active;
+}
+
+.expanded .list__link.list__link--photo {
+	border: 0;
+}
+
+.list__icon {
+	flex: 0 0 auto;
+	height: $size-icon;
+	margin-right: $padding-module;
+	pointer-events: none;
+	transition: inherit;
+	width: $size-icon;
+
+	.list__group--list & {
+		margin-right: $padding-module;
+	}
+
+	@include at-least(gigantic) {
+		height: 3.5556rem;
+		width: 3.5556rem;
+	}
+
+	@include at-most(medium) {
+		height: to-rem(48);
+		width: to-rem(48);
+	}
+
+	path, polygon, circle, rect, ellipse, polyline, line {
+		fill: currentColor;
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.gallery__photo {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 0;
+	padding-bottom: 75%;
+}
+
+.gallery__description {
+	padding-top: $padding-grid;
+}

@@ -1,0 +1,67 @@
+.policies {
+	margin-top: $padding-general;
+}
+
+.policies__subheader {
+	@include font-paragraph-header;
+
+	padding-top: $padding-similar;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&.expanded svg {
+		@include motion-transformout;
+
+		transform: rotateZ(90deg) translate(-25%, -25%);
+	}
+}
+
+.policies__collapser {
+	color: $color-header;
+
+	span {
+		padding-right: $padding-general;
+	}
+
+	svg {
+		@include motion-transformin;
+
+		height: to-rem(20);
+		margin-left: -$padding-grid;
+		stroke: $color-link;
+		transform: rotateZ(0deg) translate(0, 0);
+		width: to-rem(8);
+	}
+
+	&:hover, &:focus {
+		color: $color-header-hover;
+
+		svg {
+			stroke: $color-link-hover;
+		}
+	}
+
+	&:active {
+		color: $color-header-active;
+
+		svg {
+			stroke: $color-link-active;
+		}
+	}
+}
+
+.policies__content {
+	padding-bottom: $padding-grid;
+
+	:first-child {
+		padding-top: $padding-module;
+	}
+}
+
+.policies__updated {
+	@include font-fineprint;
+
+	padding-top: $padding-similar;
+}

@@ -1,0 +1,107 @@
+.membership__option, .questionnaire__option {
+	margin-top: -1px;
+
+	label {
+		@include motion-fillfadeout;
+		@include font-controlbutton;
+
+		//background: $fill-control;
+		border: $stroke-default;
+		color: $color-text;
+		display: block;
+		font-weight: 500;
+		opacity: 1;
+		padding: $padding-module;
+
+		.delved & {
+			opacity: .675;
+		}
+
+		&:hover, &:focus {
+			@include motion-fillfadein;
+
+			opacity: 1;
+		}
+
+		&:active {
+			@include motion-fillfadeinstant;
+
+			background: $fill-control-subtlepress;
+			color: $color-text;
+		}
+	}
+
+	input[type=radio] + label {
+		margin-top: 0;
+		padding-left: to-rem(46); // ugh special
+	}
+
+	input:checked + label {
+		//@include motion-fillfadeinstant;
+
+		color: $color-text;
+		opacity: 1;
+	}
+
+	input:checked ~ .membership__secondary label {
+		opacity: 1;
+	}
+
+	input[disabled] + label, input[disabled] + label:hover,
+	input[disabled] + label:focus, input[disabled] + label:active {
+
+		background: $fill-page;
+
+		.questionnaire__descriptor {
+			color: $color-control-disabled;
+		}
+	}
+
+	strong {
+		font-weight: 700;
+	}
+
+	&:first-child {
+		margin-top: 0;
+
+		label {
+			border-radius: $radius-control $radius-control 0 0;
+		}
+	}
+
+	&:last-child {
+		margin-top: -1px;
+
+		label {
+			border-radius: 0 0 $radius-control $radius-control;
+		}
+	}
+}
+
+.membership__secondary, .questionnaire__secondary {
+
+	border-left: $stroke-default;
+	display: none;
+	margin-top: -1px;
+	padding-left: $padding-general;
+
+	label, label:first-child, label:last-child {
+		border-left: 0;
+		border-radius: 0;
+	}
+}
+
+.questionnaire__main {
+	display: inline-block;
+	padding-top: to-rem(3);
+	text-indent: 0;
+}
+
+.questionnaire__descriptor {
+	@include font-controldescription;
+	@include motion-textfadeout;
+
+	display: block;
+	padding-top: $padding-button-y;
+	text-indent: 0;
+}

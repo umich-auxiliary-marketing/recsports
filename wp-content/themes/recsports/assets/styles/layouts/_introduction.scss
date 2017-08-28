@@ -1,0 +1,16 @@
+.introduction {
+	margin-top: $padding-rule;
+}
+
+.introduction__paragraph {
+	@include font-sectionintro;
+
+	@include at-most(condensed) {
+		font-size: to-rem(20);
+		line-height: to-rem(34);
+	}
+}
+
+.introduction__button {
+	margin-top: $padding-general;
+}

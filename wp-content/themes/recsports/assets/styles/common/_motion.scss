@@ -1,0 +1,149 @@
+// Durations to use for all transitions and animations.
+$duration-fadein:			.15s;
+$duration-fadeout:		.3s;
+$duration-slidein:		.3s;
+$duration-slideout:		.45s;
+$duration-snappyfade:	.3s;
+
+
+// Distances to move.
+$movement-navblock:		to-rem(16);
+
+// Bézier curves.
+$curve-snappy:				cubic-bezier(.140, .995, .610, 1);
+$curve-smoothfade:		cubic-bezier(0, 1, .5, 1.275);
+
+
+@mixin motion-blockfadein {
+	opacity: 1;
+	transition: opacity $duration-fadein 0s, visibility 0s 0s, transform 0s 0s;
+	visibility: visible;
+}
+
+@mixin motion-blockfadeout {
+	opacity: 0;
+	transition: opacity $duration-fadeout 0s, visibility 0s $duration-fadeout, transform 0s $duration-fadeout;
+	visibility: hidden;
+}
+
+@mixin motion-expandedfadeinstant {
+	transition: opacity 0s;
+}
+
+@mixin motion-expandedfadeout {
+	transition: opacity $duration-fadeout 0s;
+}
+
+@mixin motion-blockfadeinstant {
+	transition: opacity 0s, visibility 0s;
+}
+
+@mixin motion-sidebartabfadein {
+	opacity: 1;
+	transition: opacity $duration-snappyfade 0s, visibility 0s 0s;
+}
+
+@mixin motion-sidebartabfadeout {
+	opacity: 0;
+	transition: opacity $duration-snappyfade 0s, visibility 0s $duration-snappyfade;
+}
+
+@mixin motion-textfadein {
+	transition: color $duration-fadein $curve-snappy, background $duration-fadein $curve-snappy, border $duration-fadein $curve-snappy, fill $duration-fadein $curve-snappy, stroke $duration-fadein $curve-snappy, box-shadow $duration-fadein $curve-snappy, transform $duration-fadein $curve-snappy;
+}
+
+@mixin motion-textfadeout {
+	transition: color $duration-fadeout $curve-snappy, background $duration-fadeout $curve-snappy, border $duration-fadeout $curve-snappy, fill $duration-fadeout $curve-snappy, stroke $duration-fadeout $curve-snappy,  box-shadow $duration-fadeout $curve-snappy, transform $duration-fadeout $curve-snappy;
+}
+
+@mixin motion-transformin {
+	transition: transform $duration-fadein $curve-snappy, stroke $duration-fadein $curve-snappy;
+}
+
+@mixin motion-transformout {
+	transition: transform $duration-fadeout $curve-snappy, stroke $duration-fadeout $curve-snappy;
+}
+
+@mixin motion-transforminstant {
+	transition: transform 0s, stroke 0s;
+}
+
+@mixin motion-textfadeinstant {
+	transition: color 0s, background 0s, border 0s, fill 0s, stroke 0s, box-shadow 0s, transform 0s;
+}
+
+@mixin motion-fillfadein {
+	transition: background $duration-fadein $curve-snappy, border $duration-fadein $curve-snappy, fill $duration-fadein $curve-snappy, stroke $duration-fadein $curve-snappy, box-shadow $duration-fadein $curve-snappy, opacity $duration-fadein $curve-snappy;
+}
+
+@mixin motion-fillfadeout {
+	transition: background $duration-fadeout $curve-snappy, border $duration-fadeout $curve-snappy, fill $duration-fadeout $curve-snappy, stroke $duration-fadeout $curve-snappy, box-shadow $duration-fadeout $curve-snappy, opacity $duration-fadeout $curve-snappy;
+}
+
+@mixin motion-fillfadeinstant {
+	transition: background 0s, border 0s, fill 0s, stroke 0s, box-shadow 0s, opacity 0s;
+}
+
+@mixin motion-menuscrollin {
+	transition: transform 0s 0s, opacity $duration-snappyfade $curve-smoothfade, z-index 0s $duration-slidein, visibility 0s 0s;
+}
+
+@mixin motion-menuscrollout {
+	transition: transform 0s $duration-slideout, opacity $duration-fadeout $curve-smoothfade 0s, z-index 0s 0s, visibility 0s $duration-slideout;
+}
+
+@mixin motion-menufadein {
+	transition: $duration-snappyfade $curve-smoothfade;
+}
+
+@mixin motion-menufadeout {
+	transition: opacity $duration-fadeout $curve-smoothfade;
+}
+
+@mixin motion-blocktopscrollin {
+	transform: translate3d(0, 0%, 0);
+	transition: transform $duration-fadein 0s $curve-snappy, visibility 0s $curve-snappy 0s;
+	visibility: visible;
+}
+
+@mixin motion-blocktopscrollout {
+	transform: translate3d(0, -100%, 0);
+	transition: transform $duration-fadeout 0s $curve-snappy, visibility 0s $curve-snappy $duration-fadeout;
+	visibility: hidden;
+}
+
+@mixin motion-pushdownfromblocktopscrollin {
+	transform: translate3d(0, $size-header, 0);
+	transition: transform $duration-fadein 0s $curve-snappy;
+
+	@include at-most(compressed) {
+		transform: translate3d(0, $size-mobile-header, 0);
+	}
+}
+
+@mixin motion-pushupfromblocktopscrollout {
+	transform: translate3d(0, 0, 0);
+	transition: transform $duration-fadeout 0s $curve-snappy;
+}
+
+@mixin motion-pushdownfromsidebartopscrollin {
+	transform: translate3d(0, $size-header, 0);
+	transition: transform $duration-fadein 0s $curve-snappy;
+
+	@include at-most(narrow) {
+		transform: translate3d(0, #{$size-header + $size-mobile-sidebar}, 0);
+	}
+
+	@include at-most(compressed) {
+		transform: translate3d(0, #{$size-mobile-header + $size-mobile-sidebar}, 0);
+	}
+}
+
+@mixin motion-pushupfromsidebartopscrollout {
+	transform: translate3d(0, 0, 0);
+	transition: transform $duration-fadeout 0s $curve-snappy;
+
+	@include at-most(narrow) {
+		transform: translate3d(0, $size-mobile-sidebar, 0);
+	}
+}

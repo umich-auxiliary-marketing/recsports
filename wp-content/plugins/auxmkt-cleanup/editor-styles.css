@@ -1,0 +1,15 @@
+html, body {
+	background: #fafaf9;
+}
+
+.mce-content-body {
+	padding: 0 .5rem .5rem .5rem !important;
+}
+
+.content {
+	background: #fafaf9;
+	box-sizing: border-box;
+	height: 100% !important;
+	padding: 1rem !important;
+	width: 100%;
+}

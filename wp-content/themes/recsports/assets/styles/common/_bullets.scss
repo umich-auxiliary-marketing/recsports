@@ -1,0 +1,109 @@
+@mixin bullet-a {
+	li::before {
+		background: $fill-bullet;
+		border-radius: 50%;
+		content: '';
+		display: inline-block;
+		float: left;
+		height: to-rem(7);
+		margin-left: -$padding-similar;
+		margin-top: to-rem(11);
+		vertical-align: middle;
+		width: to-rem(7);
+	}
+}
+
+@mixin bullet-b {
+	li::before {
+		background: $fill-bullet;
+		border-radius: 0;
+		content: '';
+		display: inline-block;
+		float: left;
+		height: to-rem(3);
+		margin-left: -$padding-similar;
+		margin-top: to-rem(14);
+		width: to-rem(7);
+	}
+}
+
+@mixin bullet-c {
+	li::before {
+		background: transparent;
+		border-bottom: to-rem(4) solid transparent;
+		border-left: to-rem(7) solid $fill-bullet;
+		border-radius: 0;
+		border-top: to-rem(4) solid transparent;
+		content: '';
+		display: inline-block;
+		float: left;
+		height: 0;
+		margin-left: -$padding-similar;
+		margin-top: to-rem(10);
+		width: 0;
+	}
+}
+
+@mixin ordinal-a {
+	li {
+		counter-increment: step-counter-a;
+	}
+
+	li::before {
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		color: $fill-bullet;
+		content: counter(step-counter-a);
+		float: left;
+		font-weight: 600;
+		height: auto;
+		margin-left: to-rem(-58);
+		margin-top: 0;
+		text-align: right;
+		width: to-rem(50);
+	}
+}
+
+@mixin ordinal-b {
+	li {
+		counter-increment: step-counter-b;
+	}
+
+	li::before {
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		color: $fill-bullet;
+		content: counter(step-counter-b, lower-alpha);
+		float: left;
+		font-weight: 600;
+		height: auto;
+		margin-left: -$padding-gutter;
+		margin-top: 0;
+		text-align: right;
+		width: $padding-similar;
+	}
+}
+
+
+@mixin ordinal-c {
+	li {
+		counter-increment: step-counter-c;
+	}
+
+	li::before {
+		background: transparent;
+		border: 0;
+		border-radius: 0;
+		color: $fill-bullet;
+		content: counter(step-counter-c, lower-roman);
+		float: left;
+		font-weight: 600;
+		height: auto;
+		margin-left: -$padding-gutter;
+		margin-top: 0;
+		text-align: right;
+		width: $padding-similar;
+	}
+}

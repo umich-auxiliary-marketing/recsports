@@ -1,0 +1,34 @@
+.searchformwrap {
+	padding-top: $padding-general;
+	text-align: center;
+
+	&--toprule {
+		border-top: $stroke-default;
+		margin-top: $padding-general;
+	}
+
+	&--bottomrule {
+		border-bottom: $stroke-default;
+		padding-bottom: $padding-general;
+	}
+}
+
+.searchform {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+input[type=search].searchform__field {
+	border-bottom-right-radius: 0;
+	border-right: 0;
+	border-top-right-radius: 0;
+	flex: 1 1 100%;
+	min-width: 0;
+	width: auto;
+}
+
+input[type=submit].searchform__submit {
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	flex: 0 0 auto;
+}

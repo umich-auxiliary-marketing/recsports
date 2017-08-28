@@ -1,0 +1,31 @@
+.challenge {
+}
+
+.challenge__questionnaire {
+	margin-left: $padding-module;
+	padding: $padding-module 0 $padding-similar $size-processbullet;
+}
+
+.challenge__unfinished, .challenge__finished {
+	padding-top: $padding-similar;
+}
+
+.challenge__finishedcopy.paragraph--copy h2 {
+	font-weight: 300;
+}
+
+.challenge__price {
+	font-weight: 400;
+}
+
+.challenge__beginbutton {
+	padding-top: $padding-similar;
+
+	&.collapsed {
+		display: none;
+	}
+}
+
+.challenge__form {
+	padding-top: $padding-similar;
+}

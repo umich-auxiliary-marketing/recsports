@@ -1,0 +1,189 @@
+.wrapper--snippet {
+	padding-bottom: $padding-rule;
+}
+
+.container--snippet {
+	background: $fill-page;
+}
+
+.content--home {
+
+	@include pad(1, 1);
+
+	@include at-least(gigantic) {
+		@include pad(2, 2);
+	}
+
+	@include at-most(medium) {
+		@include pad(0, 0);
+	}
+}
+
+.snippet {
+	display: flex;
+	justify-content: space-between;
+
+	& + & {
+		padding-top: $padding-snippet;
+	}
+
+	&--even {
+		flex-direction: row-reverse;
+
+		@include at-most(condensed) {
+			flex-direction: row;
+		}
+	}
+}
+
+.snippet__homeheader, .facilities__homeheader {
+	@include font-groupheader;
+
+	padding-bottom: $padding-general;
+	padding-top: $padding-rule;
+	text-align: center;
+}
+
+.hr--snippet {
+	margin-top: $padding-rule;
+	width: 100%;
+}
+
+.snippet__visual {
+	align-items: stretch;
+	background-position: center 15%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+
+	@include at-most(condensed) {
+		//display: none;
+		max-height: 7.5rem;
+	}
+
+	@include at-most(compressed) {
+		display: none;
+	}
+
+	&::after {
+		background-image: url('../images/snippetcover.svg');
+		background-position: right center;
+		background-repeat: no-repeat;
+		bottom: 0;
+		content: '';
+		left: -1px;
+		position: absolute;
+		top: 0;
+		transform: scaleX(-1);
+		width: 50%;
+
+		@include at-most(condensed) {
+			left: auto;
+			right: -1px;
+			transform: scaleX(1);
+		}
+
+		.snippet--odd & {
+			left: auto;
+			right: -1px;
+			transform: scaleX(1);
+		}
+	}
+
+	.snippet--odd & {
+		@include span(4 of 10);
+
+		@include at-least(gigantic) {
+			@include span(3 of 8)
+		}
+
+		@include at-most(condensed) {
+			@include span(3);
+		}
+	}
+
+	.snippet--even & {
+		@include span(last 4 of 10);
+
+		@include at-least(gigantic) {
+			@include span(last 3 of 8);
+		}
+
+		@include at-most(condensed) {
+			@include span(3);
+		}
+	}
+}
+
+.snippet__copy {
+
+	.snippet--odd & {
+		@include span(last 6 of 10);
+		flex-direction: row;
+
+		@include at-least(gigantic) {
+			@include span(last 5 of 8);
+		}
+
+		@include at-most(condensed) {
+			@include span(last 12);
+		}
+	}
+
+	.snippet--even & {
+		@include span(6 of 10);
+
+		@include at-least(gigantic) {
+			@include span(5 of 8);
+		}
+
+		@include at-most(condensed) {
+			@include span(last 12);
+		}
+	}
+}
+
+.snippet__sectiontitle {
+	@include font-header;
+
+	span {
+		margin-right: $padding-general;
+	}
+
+	svg {
+		display: inline-block;
+		height: to-rem(26);
+		margin-left: -$padding-grid;
+		stroke: currentColor;
+		vertical-align: middle;
+		width: to-rem(10);
+	}
+}
+
+.snippet__buttons {
+	font-size: 0;
+	margin: -$padding-gridhalf;
+	padding-top: $padding-general;
+
+	.button {
+		margin: $padding-gridhalf;
+	}
+}
+
+.snippet__headline {
+	@include font-homesectioncopyheader;
+
+	margin-top: $padding-general;
+}
+
+.snippet__paragraph {
+	@include font-homesectioncopy;
+
+	margin-top: $padding-similar;
+
+	@include at-most(compressed) {
+		display: none;
+	}
+}

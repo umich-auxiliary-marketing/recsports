@@ -1,0 +1,67 @@
+$at-least-breakpoints: (
+	'puny'		 	: (min-width:		1px),
+	'compressed':(min-width:	320px),
+	'condensed'	: (min-width:	480px),
+	'narrow'		: (min-width:	640px),
+	'medium'		: (min-width:	768px),
+	'wide'			: (min-width: 1024px),
+	'extrawide'	: (min-width: 1200px),
+	'gigantic'	: (min-width: 1440px)
+);
+
+$at-most-breakpoints: (
+	'puny'			: (max-width:	 319px),
+	'compressed':(max-width:	 479px),
+	'condensed'	: (max-width:	 639px),
+	'narrow'		: (max-width:	 767px),
+	'medium'		: (max-width:	1023px),
+	'wide'			: (max-width:	1199px),
+	'extrawide'	: (max-width:	1439px),
+	'gigantic'	: (max-width: 99999px),
+
+	'squat'			: (max-height:	449px)
+);
+
+$for-format-list: (
+	'print'			:(print),
+	'speech'		:(speech)
+);
+
+
+@mixin at-least($name) {
+	// If the key exists in the map
+	@if map-has-key($at-least-breakpoints, $name) {
+		// Prints a media query based on the value
+		@media #{inspect(map-get($at-least-breakpoints, $name))} {
+			@content;
+		}
+	} @else {
+		@warn "No breakpoints map value exists for ‘#{$name}’.";
+	}
+}
+
+
+@mixin at-most($name) {
+	// If the key exists in the map
+	@if map-has-key($at-most-breakpoints, $name) {
+		// Prints a media query based on the value
+		@media #{inspect(map-get($at-most-breakpoints, $name))} {
+			@content;
+		}
+	} @else {
+		@warn "No breakpoints map value exists for ‘#{$name}’.";
+	}
+}
+
+
+@mixin for-format($name) {
+	// If the key exists in the map
+	@if map-has-key($for-format-list, $name) {
+		// Prints a media query based on the value
+		@media #{inspect(map-get($for-format-list, $name))} {
+			@content;
+		}
+	} @else {
+		@warn "No format map value exists for ‘#{$name}’.";
+	}
+}

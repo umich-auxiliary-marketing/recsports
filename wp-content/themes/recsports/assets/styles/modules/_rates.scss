@@ -1,0 +1,106 @@
+.rates {
+	margin-top: $padding-general;
+}
+
+.rates__header, .rates__footer {
+	background: $fill-secondary;
+	border: $stroke-default;
+	padding: $padding-fieldset $padding-module;
+}
+
+.rates__header {
+	border-bottom: 0;
+	border-radius: $radius-control $radius-control 0 0;
+}
+
+.rates__footer {
+	border-radius: 0 0 $radius-control $radius-control;
+	border-top: 0;
+	display: flex;
+	font-size: 0;
+
+	svg {
+		display: block;
+		height: to-rem(36);
+		width: to-rem(58);
+
+		& + & {
+			margin-left: $padding-module;
+		}
+	}
+
+}
+
+.rates__grouphead {
+	@include ada-hidden;
+	@include font-fieldsetheader;
+
+	&.expanded {
+		@include ada-visible;
+		padding: $padding-rule $padding-module $padding-module;
+		text-transform: uppercase;
+
+		&:first-of-type {
+			padding-top: $padding-module;
+		}
+	}
+}
+
+.rates__content {
+	border: $stroke-default;
+
+	&:first-child {
+		border-radius: $radius-control;
+	}
+}
+
+.rates__group {
+	@include ada-hidden;
+
+	padding: $padding-module;
+
+	&.expanded {
+		@include ada-visible;
+	}
+}
+
+.rates__item {
+	align-items: center;
+	display: flex;
+	padding: $padding-utilities 0;
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+	& + & {
+		border-top: $stroke-default;
+	}
+
+	dt {
+		@include font-ratelist;
+		flex: 1 1 100%;
+	}
+
+	dd {
+		@include font-rateprice;
+		flex: 1 0 auto;
+		padding-left: $padding-general;
+	}
+
+	.rates__suffix {
+		@include font-pricesuffix;
+		align-self: baseline;
+	}
+}
+
+
+.rates__fineprint {
+	@include font-fineprint;
+
+	margin-top: $padding-grid;
+}

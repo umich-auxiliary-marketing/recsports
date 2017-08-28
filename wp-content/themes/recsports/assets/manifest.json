@@ -1,0 +1,101 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js",
+				"scripts/modernizr.js",
+				"scripts/objectfitpolyfill.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+		"activenav.js": {
+      "files": [
+        "scripts/activenav.js"
+      ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"],
+			"files": ["scripts/jquery.bez.js"]
+    },
+		"fastclick.js": {
+			"bower": ["fastclick"]
+		},
+		"velocity.js": {
+			"bower": ["velocity"]
+		},
+		"throttle.js": {
+			"files": ["scripts/throttle.js"]
+		},
+		"stickykit.js": {
+      "bower": ["sticky-kit"]
+    },
+		"jquery.pin.js": {
+      "files": ["scripts/pin.js"]
+    },
+		"jquery.pin-secondary.js": {
+      "files": ["scripts/pin-secondary.js"]
+    },
+		"headroom.js": {
+			"bower": ["headroom.js"]
+		},
+		"moment.js": {
+			"bower": ["moment"]
+		},
+		"sisyphus.js": {
+			"bower": ["sisyphus"]
+		},
+		"calendar.js": {
+			"files": ["scripts/calendar.js"]
+		},
+		"custom-membership.js": {
+			"files": ["scripts/custom-membership.js"]
+		},
+		"custom-challenge.js": {
+			"files": ["scripts/custom-challenge.js"]
+		},
+		"facility.js": {
+			"files": ["scripts/facility.js"]
+		},
+		"form.js": {
+			"files": ["scripts/form.js"]
+		},
+		"notice.js": {
+			"files": ["scripts/notice.js"]
+		},
+		"list.js": {
+			"files": ["scripts/list.js"]
+		},
+		"navigation.js": {
+			"files": ["scripts/navigation.js"]
+		},
+		"policies.js": {
+			"files": ["scripts/policies.js"]
+		},
+		"stickers.js": {
+			"files": ["scripts/stickers.js"]
+		},
+		"sidebar.js": {
+			"files": ["scripts/sidebar.js"]
+		},
+		"video.js": {
+			"files": ["scripts/video.js"]
+		},
+		"sectionheader.js": {
+			"files": ["scripts/sectionheader.js"]
+		}
+  },
+  "config": {
+    "devUrl": "http://localhost/recsports"
+  }
+}

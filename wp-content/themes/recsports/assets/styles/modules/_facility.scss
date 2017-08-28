@@ -1,0 +1,105 @@
+.facilitypartial__title {
+	@include font-header;
+}
+
+.facilitypartial__sectionheader {
+	@include font-paragraph-header;
+
+	color: $color-header;
+
+	span {
+		margin-right: $padding-general;
+	}
+
+	svg {
+		@include motion-transformin;
+
+		height: to-rem(20);
+		margin-left: -$padding-grid;
+		stroke: $color-link;
+		width: to-rem(8);
+	}
+
+	&:link:hover, &:link:focus {
+		color: $color-header-hover;
+
+		svg {
+			stroke: $color-link-hover;
+		}
+	}
+
+	&:link:active {
+		color: $color-header-active;
+
+		svg {
+			stroke: $color-link-active;
+		}
+	}
+}
+
+
+.facilitypartial__accessdetails {
+	padding-top: $padding-similar;
+}
+
+
+.container--facilities {
+	background: $fill-secondary;
+}
+
+.content--facility {
+
+	@include at-most(medium) {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+
+.content--facility .content, .single-facility .content {
+	@include span(8);
+
+	@include at-most(medium) {
+		@include span(12);
+	}
+}
+
+.content--facility .content {
+	margin-top: $padding-similar;
+	padding-top: 0;
+}
+
+.content--facility .content.sectionheader, .content--facility .content.noticeblock {
+	margin-top: $padding-general;
+}
+
+.list__link.facilitybutton__link {
+	flex-direction: column;
+	justify-content: center;
+}
+
+.facilitybutton__title {
+	@include font-facilityheader;
+}
+
+.facilitybutton__status {
+	@include font-facilitydetail;
+	@include motion-textfadeout;
+
+	color: $color-control;
+	padding-top: $padding-button-y;
+	text-align: center;
+}
+
+.list__link:active .facilitybutton__status {
+	@include motion-textfadeinstant;
+
+	color: $color-control-active;
+}
+
+.expanded .list__link .facilitybutton__status {
+	color: currentColor;
+}
+
+.content--facilityintro {
+	padding-top: $padding-general;
+}

@@ -1,0 +1,230 @@
+.hero {
+	background-color: $fill-matting;
+	position: relative;
+
+	.wrapper {
+		//box-shadow: $shadow-outerborder;
+		height: 51rem;
+		max-height: calc(100vh - #{$size-header} - #{$size-utilities} - #{$padding-general});
+		min-height: 15rem;
+		overflow: hidden;
+		text-align: center;
+
+		@include at-most(medium) {
+			height: 40rem;
+		}
+
+		@include at-most(narrow) {
+			height: 28rem;
+		}
+
+		@include at-most(condensed) {
+			height: 22rem;
+		}
+
+		@include at-most(compressed) {
+			height: 18rem;
+		}
+	}
+
+	&::before {
+		background: $fill-herooverlay;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: $z-herooverlay;
+	}
+
+	&--novisual {
+		height: 12rem;
+	}
+}
+
+.hero__superfill {
+	background-position: center center;
+	background-repeat: 0;
+	background-size: cover;
+	bottom: 0;
+	display: none;
+	filter: grayscale(1);
+	left: 0;
+	opacity: .4;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.hero__visual {
+	display: block;
+	height: 51rem;
+	max-height: calc(100vh - #{$size-header} - #{$size-utilities} - #{$padding-general});
+	min-height: 15rem;
+	object-fit: cover;
+	pointer-events: none;
+	vertical-align: middle;
+	width: 100%;
+	z-index: $z-herovisual;
+
+	@include at-most(medium) {
+		height: 40rem;
+	}
+
+	@include at-most(narrow) {
+		height: 28rem;
+	}
+
+	@include at-most(condensed) {
+		display: none;
+	}
+}
+
+.hero__mobile {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: none;
+	height: 22rem;
+	max-height: calc(100vh - #{$size-header} - #{$size-utilities} - #{$padding-general});
+	vertical-align: middle;
+	width: 100%;
+	z-index: $z-herovisual;
+
+	@include at-most(condensed) {
+		display: block;
+	}
+
+	@include at-most(compressed) {
+		height: 18rem;
+	}
+}
+
+// scss-lint disable:PseudoElement
+video::-webkit-media-controls-start-playback-button {
+	display: none;
+}
+// scss-lint enable:PseudoElement
+
+.hero__title {
+	@include font-sectionhero;
+
+	-webkit-font-smoothing: antialiased;
+	left: 50%;
+	padding: 0 $padding-general;
+	position: absolute;
+	text-align: center;
+	text-shadow: $shadow-hero;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	z-index: $z-herotext;
+
+	@include at-most(condensed) {
+		font-size: to-rem(52);
+		line-height: to-rem(60);
+	}
+}
+
+.hero__cover {
+	bottom: 0;
+	left: 0;
+	height: $size-herocover-y;
+	margin-bottom: -1px;
+	position: absolute;
+	right: 0;
+	z-index: $z-herocover;
+
+	svg {
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+
+	&--home .coverfill {
+		fill: $fill-secondary;
+	}
+}
+
+.hero__homecopy {
+	-webkit-font-smoothing: antialiased;
+	//margin: 0 $padding-gutter;
+	position: absolute;
+	z-index: $z-herotext;
+
+	@include at-most(condensed) {
+		width: 37.5%;
+	}
+
+	@include at-most(compressed) {
+		width: 46%;
+	}
+
+	&.hero__homecopy-- {
+		&topleft, &topcenter, &topright {
+			top: 17.5%;
+		}
+
+		&middleleft, &middlecenter, &middleright {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&bottomleft, &bottomcenter, &bottomright {
+			bottom: 17.5%;
+		}
+
+		&topleft, &middleleft, &bottomleft {
+			@include prefix(1);
+
+			left: 0;
+			text-align: left;
+		}
+
+		&topcenter, &middlecenter, &bottomcenter {
+			@include pad(1, 1);
+
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+
+		&topright, &middleright, &bottomright {
+			@include suffix(1);
+
+			right: 0;
+			text-align: right;
+		}
+	}
+}
+
+.hero__homecopy__intro {
+	@include font-homeheroleader;
+
+	display: block;
+	text-shadow: $shadow-hero;
+
+	@include at-most(condensed) {
+		display: none;
+	}
+}
+
+.hero__homecopy__tagline {
+	@include font-homeherofinal;
+
+	display: block;
+	padding-top: $padding-grid;
+	text-shadow: $shadow-hero;
+
+	@include at-most(condensed) {
+		font-size: to-rem(36);
+		line-height: to-rem(44);
+	}
+
+	@include at-most(compressed) {
+		font-size: to-rem(30);
+		line-height: to-rem(36);
+	}
+}

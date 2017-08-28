@@ -1,0 +1,88 @@
+// Paddings for blocks.
+$padding-calendartitle:to-rem(6);
+$padding-button-y:	to-rem(6);
+$padding-bookend:		to-rem(8);
+$padding-sidebar:		to-rem(8);
+$padding-gridhalf:	to-rem(8);
+$padding-module:		to-rem(12);
+$padding-utilities:	to-rem(12);
+$padding-button-x:	to-rem(12);
+$padding-grid:			to-rem(16);
+$padding-fieldset:	to-rem(16);
+$padding-similar:		to-rem(16);
+$padding-gutter:		to-rem(24);
+$padding-general:		to-rem(32);
+$padding-chevron:		to-rem(36);
+$padding-rule:			to-rem(64);
+$padding-snippet:		to-rem(80);
+$padding-final:			to-rem(80);
+
+
+// Block sizes.
+$size-pagewidth:		to-rem(1440);
+$size-pagewidthpad:	to-rem(1440 + 32 + 32);
+$size-sidebartab:		to-rem(5);
+$size-utilities:		to-rem(33);
+$size-header:				to-rem(38 + 32 + 32);
+$size-headermini:		to-rem(70);
+$size-herominimum:	to-rem(200);
+$size-herocover-y:	to-rem(34);
+$size-icon:					to-rem(64);
+$size-processbullet:to-rem(48);
+$size-footerhead:		to-rem(28);
+$size-todaycircle:	to-rem(28);
+$size-dropdownarrow:to-rem(32 + 16);
+$size-listheight:		to-rem(106);
+
+
+// Mobile block sizes.
+$size-mobile-header:to-mobile-rem(130);
+$size-mobile-sidebar:to-mobile-rem(56);
+
+
+// Border radii.
+$radius-controlout:	to-rem(4);
+$radius-control:		to-rem(3);
+$radius-controlfill:to-rem(2);
+
+
+// Magic numbers--at least they're in one place?
+$magic-notext:			-99999px;
+$magic-hideblock:		-9999%;
+$magic-preventmenuoverflow: calc(100% - 5px);
+$magic-footercolophonbottom:	to-rem(-3);
+
+
+// Z-index values.
+$z-dropmenu:				 -1;
+$z-headerbacking:		  0;
+$z-backdrop:				  0;
+$z-calendarbackdrop:  1;
+$z-control:					  1;
+$z-calendarbgevent:   2;
+$z-control-hover:		  2;
+$z-calendarfocus:     3;
+$z-control-active:	  3;
+$z-calendarcontent:   4;
+$z-controldepressed:  4;
+$z-calendarhelper:    5;
+$z-control-focus:		  5;
+$z-expanded-blur:		  9;
+$z-expanded-focus:	 10;
+$z-expandedclose:		 11;
+$z-eventwindow:			 12;
+$z-eventwindowclose: 13;
+$z-moduleheader:		 15;
+$z-sidebar:					 30;
+$z-herovisual:			 50;
+$z-herooverlay:			 51;
+$z-herocover:				 52;
+$z-herotext:				 53;
+$z-darkener:				100;
+$z-sidebar-mobile:	101;
+$z-dropmenu-active:	110;
+$z-dropmenuintent:	111;
+$z-headerfixed:			160;
+$z-utilities:				170;
+$z-mobilemenu:			180;
+$z-sitemaplink:			200;

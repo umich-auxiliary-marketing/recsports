@@ -1,0 +1,78 @@
+.oembed {
+	margin-top: $padding-general;
+
+	// scss-lint:disable ImportantRule
+	// Forgive me
+	iframe {
+		margin: 0 !important;
+		max-width: 100%;
+	}
+	// scss-lint:enable ImportantRule
+}
+
+// Some oEmbeds don't play nicely, so we need to give them extra care.
+.oembed__shrinkwrap {
+	&[data-oembed*=youtube] {
+		height: 0;
+		padding-top: 56.25%;
+		position: relative;
+		width: 100%;
+
+		iframe {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&[data-oembed*=vineco] {
+		height: to-rem(500);
+		position: relative;
+		width: to-rem(500);
+
+		@include at-most(condensed) {
+			height: 0;
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		iframe {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&[data-oembed*=scribd] {
+		height: 0;
+		padding-top: 75%;
+		position: relative;
+		width: 100%;
+
+		iframe {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+
+	&[data-oembed*=soundcloud] {
+		height: to-rem(300);
+		position: relative;
+		width: 100%;
+
+		iframe {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
+}

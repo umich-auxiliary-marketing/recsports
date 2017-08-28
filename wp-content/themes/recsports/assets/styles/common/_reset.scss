@@ -1,0 +1,70 @@
+// Define the font-size as the very first thing.
+$base-font-size-giant: 18;
+$base-font-size: 16;
+$base-font-size-mobile: 14;
+
+// Resets.
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video, hr {
+	border: 0;
+	font: inherit;
+	font-feature-settings: "pnum" 1, "kern" 1, "liga" 1;
+	font-size: 100%;
+	font-variant-ligatures: common-ligatures;
+	margin: 0;
+	overflow-wrap: break-word;
+	padding: 0;
+	text-decoration: none;
+	text-size-adjust: none;
+	vertical-align: baseline;
+	-ms-word-break: break-word;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *::after, *::before {
+	box-sizing: inherit;
+}
+
+body {
+	-webkit-font-smoothing: subpixel-antialiased;
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote {
+	&::before, &::after {
+		content: '';
+	}
+}
+
+hr {
+	border-top: 1px solid currentColor;
+}
+
+q {
+	&::before, &::after {
+		content: '';
+	}
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

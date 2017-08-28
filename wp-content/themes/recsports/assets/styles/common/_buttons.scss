@@ -1,0 +1,178 @@
+// Baseline button styles that permeate the site.
+//scss-lint:disable QualifyingElement
+//scss-lint:disable SelectorFormat
+.button, button, input[type=button], input[type=submit], input[type=reset] {
+	@include font-controlbutton;
+	@include motion-textfadeout;
+
+	-webkit-appearance: none;
+	background: $fill-control;
+	border: $stroke-control;
+	border-radius: $radius-control;
+	color: $color-control;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0;
+	padding: $padding-button-y $padding-button-x;
+	position: relative;
+	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
+	z-index: $z-control;
+
+	&.button--full {
+		text-align: center;
+		width: 100%;
+	}
+
+	svg, path, polyline, line {
+		@include motion-textfadeout;
+
+		display: block;
+		stroke: $color-control;
+	}
+
+	&:hover, &:focus {
+		@include motion-textfadein;
+
+		background: $fill-control-hover;
+		border: $stroke-control;
+		color: $color-control;
+		z-index: $z-control-hover;
+
+		svg, path, polyline, line {
+			@include motion-textfadein;
+
+			stroke: $color-control;
+		}
+	}
+
+	&:active, &.button--selected:active {
+		@include motion-textfadeinstant;
+
+		background: $fill-control-selected-active;
+		border: $stroke-control-active;
+		color: $color-control-active;
+
+		svg, path, polyline, line {
+			@include motion-textfadeinstant;
+			stroke: $color-control-active;
+		}
+	}
+
+	&.button--selected {
+		@include motion-textfadeout;
+
+		background: $fill-control-active;
+		border: $stroke-control-active;
+		color: $color-control-active;
+
+		svg, path, polyline, line {
+			@include motion-textfadeinstant;
+			stroke: $color-control-active;
+		}
+	}
+
+	&.button--selected:active {
+		@include motion-textfadeinstant;
+
+		background: $fill-control-selected-active;
+		border-color: $fill-control-selected-active;
+	}
+
+	&[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+		@include motion-textfadeout;
+
+		background: $fill-control;
+		border: $stroke-control-disabled;
+		color: $color-control-disabled;
+		cursor: default;
+	}
+
+	svg {
+		display: block;
+	}
+}
+
+
+// Grouped buttons.
+.buttongroup {
+	display: inline-block;
+
+	button, .button {
+		border-radius: 0;
+		margin: 0;
+
+		+ button, + .button {
+			margin-left: -1px;
+		}
+
+		&:first-child {
+			border-radius: $radius-control 0 0 $radius-control;
+		}
+
+		&:last-child {
+			border-radius: 0 $radius-control $radius-control 0;
+		}
+	}
+}
+
+
+// Default blue for submit buttons.
+input[type=submit], .frm_button_submit {
+	background: $fill-defaultcta;
+	border-color: $fill-defaultcta;
+
+	&:hover, &:focus {
+		background: $fill-defaultcta-hover;
+		border-color: $fill-defaultcta-hover;
+	}
+
+	&:active {
+		background: $fill-defaultcta-active;
+		border-color: $fill-defaultcta-active;
+	}
+}
+
+
+// Calls-to-action.
+.button--cta, input[type=submit], .frm_button_submit {
+	@include font-homesectionbutton;
+
+	background: $color-link;
+	border-color: $color-link;
+	border-style: solid;
+	border-width: 1px;
+	color: $color-actionbutton;
+
+	&:hover, &:focus {
+		background: $color-link-hover;
+		border-color: $color-link-hover;
+		color: $color-actionbutton;
+	}
+
+	&:active {
+		background: $color-link-active;
+		border-color: $color-link-active;
+		color: $color-actionbutton;
+	}
+}
+
+.button--ctasecondary {
+	@include font-homesectionbutton;
+
+	background: $fill-page;
+	border: 1px solid currentColor;
+	color: $color-link;
+
+	&:hover, &:focus {
+		background: $fill-page;
+		border-color: currentColor;
+		color: $color-link-hover;
+	}
+
+	&:active {
+		background: $fill-control-subtlepress;
+		border-color: currentColor;
+		color: $color-link-active;
+	}
+}

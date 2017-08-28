@@ -1,0 +1,33 @@
+// Implementation of Susy details.
+$susy: (
+	global-box-sizing: border-box,
+	debug: (
+		image: hide,
+		color: rgba(#66f, .125),
+		output: background,
+		toggle: top right,
+	),
+	container: 1440px,
+	columns: 12,  // The number of columns in your grid
+	gutters: .375, // The size of a gutter in relation to a single column
+);
+
+.container {
+	padding-left: $padding-general;
+	padding-right: $padding-general;
+
+	@include at-most(narrow) {
+		padding-left: $padding-gutter;
+		padding-right: $padding-gutter;
+	}
+}
+
+.wrapper {
+	@include container(90rem);
+
+	position: relative;
+
+	&--centered {
+		text-align: center;
+	}
+}
