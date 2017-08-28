@@ -13,7 +13,7 @@ class AuxMkt_Google_Calendar_Cacher {
 		// Set up the Google API client with the proper credentials and scopes.
 		// Since the credentials are shared amongst all, be conscious of quotas.
 		$client = new Google_Client();
-		$client->setDeveloperKey('AIzaSyC75rKmk8wDd0bXaJmemJFz5pFL0W80_rg');
+		$client->setDeveloperKey('KeyGoesHere');
 		$client->setAuthConfig(dirname(__FILE__) . '/../credentials/UmichRecSports-c8549514cafc.json');
 		$client->setScopes('https://www.googleapis.com/auth/calendar.readonly');
 
